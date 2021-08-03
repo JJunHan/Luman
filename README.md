@@ -1,2 +1,2 @@
-# Lumen
+# Luman
 Lawyers are humans too
