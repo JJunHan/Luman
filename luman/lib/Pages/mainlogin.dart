@@ -13,39 +13,17 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: size.height * 0.70),
+
+            /*
             Image.asset(
               "assets/icons/logo.png",
               //width: size.width,
               //height: size.height,
               //fit: BoxFit.fill,
             ),
-            SizedBox(height: size.height * 0.05),
-            Stack(
-              // Stack the paint and words tgt to make it outlined
-              children: <Widget>[
-                Text(
-                  "Lawyers are Humans too",
-                  style: TextStyle(
-                    //fontWeight: FontWeight.bold,
-                    fontFamily: "Courier",
-                    fontSize: 24,
-                    foreground: Paint()
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 1
-                      ..color = Colors.white,
-                  ),
-                ),
-                Text(
-                  "Lawyers are Humans too",
-                  style: TextStyle(
-                    fontFamily: "Courier",
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: size.height * 0.01),
+            */
+            //SizedBox(height: size.height * 0.01),
             /*
             SvgPicture.asset(
               "assets/icons/law.svg",
@@ -53,9 +31,9 @@ class Body extends StatelessWidget {
             ),
             */
             RoundedButton(
-              text: "LOGIN",
+              text: "Login",
               textColor: Colors.black,
-              color: Color(0xFFFFE0B2),
+              color: Color(0xFFFFFFFF),
               press: () {
                 Navigator.push(
                   context,
@@ -68,9 +46,9 @@ class Body extends StatelessWidget {
               },
             ),
             RoundedButton(
-              text: "SIGN UP", //Colors.orange FFFFE0B2
-              color: Color(0xFFE6EE9c), // Colors.green FFE6EE9c
-              textColor: Colors.black,
+              text: "Sign up",
+              color: Color(0xFF3F51B5), //Colors.blue FF3F51B5
+              textColor: Colors.white,
               press: () {
                 Navigator.push(
                   context,
@@ -82,6 +60,34 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            SizedBox(height: size.height * 0.10),
+            /*
+            Stack(
+              // Stack the paint and words tgt to make it outlined
+              children: <Widget>[
+                Text(
+                  "Where Lawyers are Humans",
+                  style: TextStyle(
+                    //fontWeight: FontWeight.bold,
+                    fontFamily: "Courier",
+                    fontSize: 18,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 1
+                      ..color = Colors.white,
+                  ),
+                ),
+                Text(
+                  "Where Lawyers are Humans",
+                  style: TextStyle(
+                    fontFamily: "Courier",
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            */
           ],
         ),
       ),

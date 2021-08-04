@@ -20,7 +20,7 @@ class Background extends StatelessWidget {
             left: 0,
             bottom: 0,
             child: Image.asset(
-              "assets/images/test.png", // Background image is here
+              "assets/images/bg.jpg", // Background image is here
               width: size.width,
               height: size.height,
               fit: BoxFit.fill,
