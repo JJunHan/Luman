@@ -10,6 +10,14 @@
 - Jolene
 - Min Hui
 
+## Functions
+
+- Forums to post questions/connect
+- Chatbot to direct them to different tools within the app
+- Chatbot that is annoyomous (chatting with other users)
+- Resources ?
+- 
+
 ## Topic of choice
 
 > Psychological Risks: Telecommuting has blurred the line between work and home,
