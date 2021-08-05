@@ -3,18 +3,22 @@ import 'package:luman/Pages/mainloginbg.dart';
 import 'package:flutter_svg/svg.dart'; //to use svg images
 import 'package:luman/Pages/buttons.dart';
 import 'package:luman/Pages/loginentry.dart';
+import 'package:luman/constants.dart';
+import 'package:toggle_bar/toggle_bar.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    List<String> labels = ["Light", "Dark"];
     // This size provide us total height and width of our screen
     return Background(
+      innerPage: false,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: size.height * 0.60),
+            SizedBox(height: size.height * 0.55),
             /*
             Image.asset(
               "assets/icons/logo.png",
@@ -33,7 +37,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "Login",
               textColor: Colors.black,
-              color: Color(0xFFFFFFFF).withOpacity(0.6), //0.2 white
+              color: kWhite,
               press: () {
                 Navigator.push(
                   context,
@@ -48,7 +52,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "Sign up",
               textColor: Colors.black,
-              color: Color(0xFFFFFFFF).withOpacity(0.6), //Color(0xFF3F51B5),
+              color: kWhite,
               press: () {
                 Navigator.push(
                   context,
@@ -60,6 +64,15 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            SizedBox(height: size.height * 0.02),
+            /*
+            ToggleBar(
+                labels: labels,
+                backgroundColor: Colors.grey[800],
+                onSelectionUpdated: (index) {
+                  index == "light" ? lightmode = false : lightmode = true;
+                }),
+            */
             /*
             Stack(
               // Stack the paint and words tgt to make it outlined

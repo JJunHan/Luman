@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:luman/constants.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
+  final bool innerPage;
   const Background({
     Key? key,
     required this.child,
+    required this.innerPage,
   }) : super(key: key);
 
   @override
@@ -18,7 +21,9 @@ class Background extends StatelessWidget {
         children: <Widget>[
           Positioned(
             child: Image.asset(
-              "assets/images/bg.png", // Background image is here
+              innerPage
+                  ? "assets/images/bg2.jpg"
+                  : "assets/images/bg.png", // Background image is here checking if lightmode is activated
               width: size.width,
               height: size.height,
               fit: BoxFit.fill,

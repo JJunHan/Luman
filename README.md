@@ -16,7 +16,7 @@
 - Chatbot to direct them to different tools within the app
 - Chatbot that is annoyomous (chatting with other users)
 - Resources ?
-- Stories of past lawyers (reduce stigma of lawyers with mental health) 
+- Stories of past lawyers (reduce stigma of lawyers with mental health)
 - About us page (like this this is about)
 
 ## Topic of choice
@@ -33,3 +33,13 @@
 >
 > With hybrid / remote working fast becoming the norm, how might we mitigate these
 > psychological risks? (By Dentons Rodyk)
+
+## SETUP
+
+File => Preferences => Settings
+
+Search for "Flutter run additional args"
+
+then click Add Item
+
+now type --no-sound-null-safety
