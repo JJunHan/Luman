@@ -36,7 +36,7 @@
 
 ## Home Page
 
-![Sample](assets/sample.png)
+![Sample](luman/assets/sample.png)
 
 ## SETUP
 
