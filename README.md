@@ -16,7 +16,8 @@
 - Chatbot to direct them to different tools within the app
 - Chatbot that is annoyomous (chatting with other users)
 - Resources ?
-- 
+- Stories of past lawyers (reduce stigma of lawyers with mental health) 
+- About us page (like this this is about)
 
 ## Topic of choice
 

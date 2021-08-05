@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luman/Pages/mainloginbg.dart';
 import 'package:flutter_svg/svg.dart'; //to use svg images
 import 'package:luman/Pages/buttons.dart';
+import 'package:luman/Pages/loginentry.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -13,8 +14,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: size.height * 0.70),
-
+            SizedBox(height: size.height * 0.60),
             /*
             Image.asset(
               "assets/icons/logo.png",
@@ -39,7 +39,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Body(); //LoginScreen();
+                      return LoginScreen();
                     },
                   ),
                 );
@@ -60,7 +60,6 @@ class Body extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: size.height * 0.10),
             /*
             Stack(
               // Stack the paint and words tgt to make it outlined

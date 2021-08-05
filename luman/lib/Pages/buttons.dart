@@ -5,7 +5,7 @@ const kPrimaryLightColor = Color(0xFFF1E6FF);
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback press;
   final Color color, textColor;
   const RoundedButton({
     Key? key,
@@ -30,7 +30,7 @@ class RoundedButton extends StatelessWidget {
             backgroundColor: color,
             textStyle: const TextStyle(fontSize: 20),
           ),
-          onPressed: () {},
+          onPressed: press,
           child: Text(
             text,
             style: TextStyle(color: textColor),
