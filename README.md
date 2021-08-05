@@ -10,7 +10,7 @@
 - Jolene
 - Min Hui
 
-## Functions
+## Functions (EDIT)
 
 - Forums to post questions/connect
 - Chatbot to direct them to different tools within the app
@@ -33,6 +33,10 @@
 >
 > With hybrid / remote working fast becoming the norm, how might we mitigate these
 > psychological risks? (By Dentons Rodyk)
+
+## Home Page
+
+![Sample](assets/sample.png)
 
 ## SETUP
 
