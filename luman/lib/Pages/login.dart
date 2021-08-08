@@ -7,6 +7,7 @@ import 'package:luman/Pages/input_field.dart';
 import 'package:luman/Pages/password_field.dart';
 import 'package:luman/Pages/accountchecker.dart';
 import 'package:luman/Pages/signupentry.dart';
+import 'package:luman/Pages/homepageentry.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -47,12 +48,25 @@ class Body extends StatelessWidget {
               textColor: Colors.black,
               color: kWhite,
               press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomePage(
+                        username:
+                            Username, //pass the user name into the entry page
+                      );
+                    },
+                  ),
+                );
+                /* // This to be replaced later to send data over to DB
                 showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
                           title: Text('User & Password'),
                           content: Text(Username + "\n" + Password),
                         ));
+                        */
               },
             ),
             SizedBox(height: size.height * 0.03),

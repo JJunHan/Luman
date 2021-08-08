@@ -45,6 +45,7 @@ class Body extends StatelessWidget {
               textColor: Colors.black,
               color: kWhite,
               press: () {
+                // This to be replaced later to send data over to DB
                 showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
