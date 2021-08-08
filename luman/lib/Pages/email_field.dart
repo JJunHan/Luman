@@ -18,11 +18,11 @@ class RoundedemailField extends StatelessWidget {
     return TextFieldContainer(
       child: TextField(
         onChanged: onChanged,
-        cursorColor: kPrimaryColor,
+        cursorColor: cursorColor,
         decoration: InputDecoration(
           icon: Icon(
             icon,
-            color: kPrimaryColor,
+            color: emailIconColor,
           ),
           hintText: hintText,
           border: InputBorder.none,

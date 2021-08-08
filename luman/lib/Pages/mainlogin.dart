@@ -5,6 +5,7 @@ import 'package:luman/Pages/buttons.dart';
 import 'package:luman/Pages/loginentry.dart';
 import 'package:luman/constants.dart';
 import 'package:toggle_bar/toggle_bar.dart';
+import 'package:luman/Pages/signupentry.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -58,7 +59,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Body(); //SignUpScreen();
+                      return SignUpScreen();
                     },
                   ),
                 );

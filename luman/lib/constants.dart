@@ -3,5 +3,17 @@ import 'package:flutter/material.dart';
 const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 
-Color kWhite = Color(0xFFFFFFFF).withOpacity(0.6);
+const textfieldColor = Color(0xFFFFFFFF); // FFF3E5F5
+const cursorColor = Color(0xFF6F35A5); //0xFF6F35A5
+
+const emailIconColor = Color(0xFF6F35A5);
+const userIconColor = Color(0xFF6F35A5);
+const passIconColor = Color(0xFF6F35A5);
+
+const accountCheckColor =
+    Color(0xFFBA68C8); //Colors.purple[50]; //Color(0xFFBA68C8);
+
+Color kWhite = Color(0xFFF3E5F5).withOpacity(
+    0.6); // this will change all opacity of the Login and signup buttons
+
 //bool inner_page = true;
