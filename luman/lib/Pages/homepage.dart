@@ -26,16 +26,16 @@ class Body extends StatelessWidget {
               alignment: Alignment.topLeft,
               margin: EdgeInsets.only(
                   //adjust position of Welcome User here
-                  left: 30,
-                  top: 45),
+                  left: size.width * 0.10,
+                  top: size.height * 0.10),
               //padding: EdgeInsets.(10.0), //this is for internal padding
               child: Text(
-                "Welcome " + username,
+                "Hello " + username + ",",
                 style: TextStyle(
-                  fontFamily: "Courier",
-                  fontSize: 18,
+                  fontFamily: "open sans",
+                  fontSize: size.width / 13,
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
             ),
