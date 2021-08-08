@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/resources_slider.dart';
 import 'package:luman/Pages/homepageheaders.dart';
+import 'package:luman/Pages/loginentry.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -43,22 +44,52 @@ class Body extends StatelessWidget {
             ),
             homepageHeaders(
               text: "Resources just for you",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen(); // Change this
+                    },
+                  ),
+                );
+              },
             ),
 
-            ResourcesSlider(
+            ResourcesSlider(//to be replaced by individual customized sliders
                 //onChanged: "holder",
                 ),
 
             homepageHeaders(
               text: "Tools to get you connected",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen(); // Change this
+                    },
+                  ),
+                );
+              },
             ),
 
-            ResourcesSlider(
+            ResourcesSlider(//to be replaced by individual customized sliders
                 //onChanged: "holder",
                 ),
 
             homepageHeaders(
               text: "Need a distraction?",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen(); // Change this
+                    },
+                  ),
+                );
+              },
             ),
 
             ResourcesSlider(

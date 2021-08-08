@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:luman/constants.dart';
-import 'package:luman/Pages/loginentry.dart';
 
 class homepageHeaders extends StatelessWidget {
   //final ValueChanged<String> onChanged;
-  final text;
+  final String text;
+  final VoidCallback press;
   const homepageHeaders({
     Key? key,
     //required this.onChanged,
+    required this.press,
     required this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    int sizeofText = text.length;
     return Row(
       children: <Widget>[
         Container(
-          //width: size.width,
+          width: size.width - size.width * 0.10,
           alignment: Alignment.topLeft,
           margin: EdgeInsets.only(
             //adjust position of Welcome User here
             left: size.width * 0.10,
-            top: size.height * 0.06,
+            top: size.height * 0.05,
           ),
           //padding: EdgeInsets.(10.0), //this is for internal padding
           child: Row(
@@ -37,18 +38,9 @@ class homepageHeaders extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(width: size.width * 0.2),
+              SizedBox(width: size.width * 0.2 - sizeofText),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return LoginScreen(); // Change this
-                      },
-                    ),
-                  );
-                },
+                onTap: press,
                 child: Text(
                   "See more",
                   style: TextStyle(
