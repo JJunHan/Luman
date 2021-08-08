@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:luman/Pages/homepagebg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:luman/constants.dart';
+import 'package:luman/Pages/resources_slider.dart';
+import 'package:luman/Pages/homepageheaders.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -13,16 +15,16 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Background(
       //this is from homepagebg
       innerPage: true,
       child: SingleChildScrollView(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Start of Hello User
             Container(
-              width: size.width,
+              //width: size.width,
               alignment: Alignment.topLeft,
               margin: EdgeInsets.only(
                   //adjust position of Welcome User here
@@ -39,6 +41,13 @@ class Body extends StatelessWidget {
                 ),
               ),
             ),
+            homepageHeaders(
+              text: "Resources just for you",
+            ),
+
+            ResourcesSlider(
+                //onChanged: "holder",
+                ),
 
             //SizedBox(height: size.height * 0.25),
             //SizedBox(height: size.height * 0.03),

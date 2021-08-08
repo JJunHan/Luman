@@ -13,6 +13,10 @@ const passIconColor = Color(0xFF000000);
 const accountCheckColor = Color(0xB3FFFFFF);
 //Color(0xFFFFFFFF); //Colors.purple[50]; //Color(0xFFBA68C8);
 
+const pastelPink = Color(0xFFFFCDD2);
+const pastelBlue = Color(0xFFE3F2FD);
+const pastelGreen = Color(0xFFC8E6C9);
+const pastelYellow = Color(0xFFFFF9C4);
 Color kWhite = Color(0xFFF3E5F5).withOpacity(
     0.6); // this will change all opacity of the Login and signup buttons
 
