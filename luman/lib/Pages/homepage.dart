@@ -49,6 +49,22 @@ class Body extends StatelessWidget {
                 //onChanged: "holder",
                 ),
 
+            homepageHeaders(
+              text: "Tools to get you connected",
+            ),
+
+            ResourcesSlider(
+                //onChanged: "holder",
+                ),
+
+            homepageHeaders(
+              text: "Need a distraction?",
+            ),
+
+            ResourcesSlider(
+                //onChanged: "holder",
+                ),
+
             //SizedBox(height: size.height * 0.25),
             //SizedBox(height: size.height * 0.03),
           ],
