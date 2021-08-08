@@ -5,6 +5,8 @@ import 'package:luman/constants.dart';
 import 'package:luman/Pages/resources_slider.dart';
 import 'package:luman/Pages/homepageheaders.dart';
 import 'package:luman/Pages/loginentry.dart';
+import 'package:luman/Pages/toolslider.dart';
+import 'package:luman/Pages/helpslider.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -74,7 +76,7 @@ class Body extends StatelessWidget {
               },
             ),
 
-            ResourcesSlider(//to be replaced by individual customized sliders
+            ToolSlider(//to be replaced by individual customized sliders
                 //onChanged: "holder",
                 ),
 
@@ -92,7 +94,7 @@ class Body extends StatelessWidget {
               },
             ),
 
-            ResourcesSlider(
+            HelpSlider(
                 //onChanged: "holder",
                 ),
 

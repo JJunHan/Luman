@@ -27,11 +27,41 @@ class ResourcesSlider extends StatelessWidget {
               width: size.width / 2.5,
               //color: Colors.red[100],
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: pastelPink.withOpacity(0.7),
+                border: Border.all(
+                  color: dirtyRed.withOpacity(0.5),
+                ),
+                color: dirtyRed.withOpacity(0.5),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: Row(
+                children: <Widget>[],
+              ),
+              /*//add bg
+              child: Stack(
+                alignment: Alignment.center, // FOR THE TEXT
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      "assets/images/innerbg.jpg", // Background image is here checking if lightmode is activated
+                      width: size.width,
+                      height: size.height,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                  color: pastelPink.withOpacity(0.7),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                  //Positioned(),
+                  Text(
+                    "Real Stories",
+                    style: TextStyle(
+                      fontFamily: "open sans",
+                      fontSize: size.width / 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              */
             ),
           ),
           SizedBox(width: size.width * 0.045),
@@ -40,11 +70,12 @@ class ResourcesSlider extends StatelessWidget {
             child: Container(
               width: size.width / 2.5,
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: pastelBlue.withOpacity(0.7),
-                  ),
-                  color: pastelBlue.withOpacity(0.7),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                border: Border.all(
+                  color: dirtyWhite.withOpacity(0.5),
+                ),
+                color: dirtyWhite.withOpacity(0.65),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
             ),
           ),
           SizedBox(width: size.width * 0.045),
@@ -53,11 +84,12 @@ class ResourcesSlider extends StatelessWidget {
             child: Container(
               width: size.width / 2.5,
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: pastelGreen.withOpacity(0.7),
-                  ),
-                  color: pastelGreen.withOpacity(0.7),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                border: Border.all(
+                  color: dirtyGreen.withOpacity(0.45),
+                ),
+                color: dirtyGreen.withOpacity(0.50),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
             ),
           ),
           SizedBox(width: size.width * 0.045),
@@ -66,11 +98,40 @@ class ResourcesSlider extends StatelessWidget {
             child: Container(
               width: size.width / 2.5,
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: pastelYellow.withOpacity(0.7),
-                  ),
-                  color: pastelYellow.withOpacity(0.7),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                border: Border.all(
+                  color: pastelYellow.withOpacity(0.4),
+                ),
+                color: pastelYellow.withOpacity(0.5),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+            ),
+          ),
+          SizedBox(width: size.width * 0.045),
+          InkWell(
+            onTap: () => print("Container pressed"), // handle your onTap here
+            child: Container(
+              width: size.width / 2.5,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: dirtyPurple.withOpacity(0.7),
+                ),
+                color: dirtyPurple.withOpacity(0.7),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+            ),
+          ),
+          SizedBox(width: size.width * 0.045),
+          InkWell(
+            onTap: () => print("Container pressed"), // handle your onTap here
+            child: Container(
+              width: size.width / 2.5,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: dirtyGrey.withOpacity(0.43),
+                ),
+                color: dirtyGrey.withOpacity(0.60),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
             ),
           ),
         ],
