@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luman/constants.dart';
+import 'package:luman/Pages/homepagetextimagefiller.dart';
 
 class ResourcesSlider extends StatelessWidget {
   //final ValueChanged<String> onChanged;
@@ -23,18 +24,15 @@ class ResourcesSlider extends StatelessWidget {
         children: <Widget>[
           InkWell(
             onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              //color: Colors.red[100],
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: dirtyRed.withOpacity(0.5),
-                ),
-                color: dirtyRed.withOpacity(0.5),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-
-              /*//add bg
+            child: TextImageFiller(
+              image: "assets/images/books.png",
+              title: "Stories",
+              subtext: "Curated real",
+              subsubtext: "stories!",
+              boarder: dirtyRed.withOpacity(0.5),
+              fill: dirtyRed.withOpacity(0.5),
+            ),
+            /*//add bg
               child: Stack(
                 alignment: Alignment.center, // FOR THE TEXT
                 children: <Widget>[
@@ -60,76 +58,65 @@ class ResourcesSlider extends StatelessWidget {
                 ],
               ),
               */
+          ),
+          SizedBox(width: size.width * 0.045),
+          InkWell(
+            onTap: () => print("Container pressed"), // handle your onTap here
+            child: TextImageFiller(
+              image: "assets/images/gazette.png",
+              title: "Articles",
+              subtext: "Good Cov-19",
+              subsubtext: "reads!",
+              boarder: dirtyTeal.withOpacity(0.3),
+              fill: dirtyTeal.withOpacity(0.60),
             ),
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
             onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: dirtyWhite.withOpacity(0.5),
-                ),
-                color: dirtyWhite.withOpacity(0.65),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
+            child: TextImageFiller(
+              image: "assets/images/singapore.png",
+              title: "Updates",
+              subtext: "Cov-19 latest ",
+              subsubtext: "news!",
+              boarder: dirtyGreen.withOpacity(0.45),
+              fill: dirtyGreen.withOpacity(0.50),
             ),
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
             onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: dirtyGreen.withOpacity(0.45),
-                ),
-                color: dirtyGreen.withOpacity(0.50),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
+            child: TextImageFiller(
+              image: "assets/images/calm.png",
+              title: "Health",
+              subtext: "Mental health",
+              subsubtext: "resources!",
+              boarder: pastelYellow.withOpacity(0.4),
+              fill: pastelYellow.withOpacity(0.5),
             ),
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
             onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: pastelYellow.withOpacity(0.4),
-                ),
-                color: pastelYellow.withOpacity(0.5),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
+            child: TextImageFiller(
+              image: "assets/images/relax.png",
+              title: "Office",
+              subtext: "Thrive at your",
+              subsubtext: "work place!",
+              boarder: dirtyPurple.withOpacity(0.7),
+              fill: dirtyPurple.withOpacity(0.7),
             ),
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
             onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: dirtyPurple.withOpacity(0.7),
-                ),
-                color: dirtyPurple.withOpacity(0.7),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-            ),
-          ),
-          SizedBox(width: size.width * 0.045),
-          InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
-            child: Container(
-              width: size.width / 2.5,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: dirtyGrey.withOpacity(0.43),
-                ),
-                color: dirtyGrey.withOpacity(0.60),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
+            child: TextImageFiller(
+              image: "assets/images/boss.png",
+              title: "Employers",
+              subtext: "Suggestions",
+              subsubtext: "for you!",
+              boarder: dirtyGrey.withOpacity(0.43),
+              fill: dirtyGrey.withOpacity(0.60),
             ),
           ),
         ],
