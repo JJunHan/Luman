@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/helplinesentry.dart';
+import 'package:luman/Individual/hiddentextreveal.dart';
 import 'package:luman/Pages/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
@@ -53,8 +55,16 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(width: size.width * 0.03),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return HelpLinesPage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/helping-hand.png",
                           title: "Helplines",

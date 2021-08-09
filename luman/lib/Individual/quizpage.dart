@@ -50,9 +50,6 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
-                  //Column(
-                  //children: <Widget>[
-                  //SizedBox(width: size.width * 0.03),
                   InkWell(
                     onTap: () => launch(
                       'https://www.proprofs.com/quiz-school/story.php?title=mjawmdy0ng28v5',
@@ -87,27 +84,40 @@ class Body extends StatelessWidget {
                     child: TextFiller(
                       //image: "assets/images/toilet-paper.png",
                       title: "How's your emotional well-being?",
-                      subtext: "Interact with",
-                      subsubtext: "Lawlo!",
-                      boarder: pastelGreen.withOpacity(0.7),
-                      fill: pastelGreen.withOpacity(0.6),
+                      subtext: "Find out how well you are coping, and access ",
+                      subsubtext: "resources to keep you mentally strong",
+                      boarder: dirtyDarkBrown.withOpacity(0.7),
+                      fill: dirtyDarkBrown.withOpacity(0.7),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
                   InkWell(
-                    onTap: () =>
-                        print("Container pressed"), // handle your onTap here
+                    onTap: () => launch(
+                        "https://www.doctoroz.com/quizzes/whats-your-chronotype/particle-1"), // handle your onTap here
                     child: TextFiller(
                       //image: "assets/images/network.png",
-                      title: "ChatBot",
-                      subtext: "Connect with",
-                      subsubtext: "others!",
+                      title: "What is your Chronotype?",
+                      subtext: "Discover your chronotype and better understand",
+                      subsubtext: "your biological programming",
                       boarder: dirtyOrange.withOpacity(0.7),
                       fill: dirtyOrange.withOpacity(0.8),
                     ),
                   ),
-                  //],
-                  //),
+                  SizedBox(height: size.height * 0.02),
+                  InkWell(
+                    onTap: () => launch(
+                        "https://www.doctoroz.com/quiz-whats-your-stress-type"), // handle your onTap here
+                    child: TextFiller(
+                      //image: "assets/images/network.png",
+                      title: "What is your stress type?",
+                      subtext: "Find out your unique stress type and get",
+                      subsubtext:
+                          "targeted solutions designed to help you relax",
+                      boarder: dirtyGrey.withOpacity(0.7),
+                      fill: dirtyGrey.withOpacity(0.8),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.07),
                 ],
               ),
             ),
