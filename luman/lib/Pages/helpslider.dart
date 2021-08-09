@@ -43,6 +43,60 @@ class HelpSlider extends StatelessWidget {
                 color: dirtyBlueGrey.withOpacity(0.9),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
+              child: Stack(
+                alignment: Alignment.center, // FOR THE TEXT
+                children: <Widget>[
+                  //Positioned(),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: size.width * 0.03,
+                      ),
+                      Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: size.height * 0.05,
+                            width: size.width * 0.05,
+                          ),
+                          Text(
+                            "Games",
+                            style: TextStyle(
+                              fontFamily: "open sans",
+                              fontSize: size.width / 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: size.height * 0.001,
+                            //width: size.width * 0.05,
+                          ),
+                          Text(
+                            "Have fun!",
+                            style: TextStyle(
+                              fontFamily: "open sans",
+                              fontSize: size.width / 28,
+                              color: Colors.white,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: size.width * 0.06),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "assets/images/snake.png", // Background image is here checking if lightmode is activated
+                          //width: size.width * 0.15,
+                          //height: size.height * 0.1,
+                          fit: BoxFit.fill,
+                          scale: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(width: size.width * 0.045),

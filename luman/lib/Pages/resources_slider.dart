@@ -33,9 +33,7 @@ class ResourcesSlider extends StatelessWidget {
                 color: dirtyRed.withOpacity(0.5),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
-              child: Row(
-                children: <Widget>[],
-              ),
+
               /*//add bg
               child: Stack(
                 alignment: Alignment.center, // FOR THE TEXT
