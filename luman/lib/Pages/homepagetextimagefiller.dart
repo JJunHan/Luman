@@ -27,6 +27,7 @@ class TextImageFiller extends StatelessWidget {
 
     return Container(
       width: size.width / 2.5,
+      height: size.height / 6.2,
       //color: Colors.red[100],
       decoration: BoxDecoration(
         border: Border.all(
