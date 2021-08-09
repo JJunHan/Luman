@@ -36,6 +36,6 @@ const dirtyDarkBrown = Color(0xFF795548);
 const dirtyDarkGreen = Color(0xFF795548);
 //Color TEST = Colors.brown[300];
 Color kWhite = Color(0xFFF3E5F5).withOpacity(
-    0.6); // this will change all opacity of the Login and signup buttons
+    0.8); // this will change all opacity of the Login and signup buttons
 
 //bool inner_page = true;

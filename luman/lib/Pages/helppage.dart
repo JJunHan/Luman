@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/quizentry.dart';
 import 'package:luman/Pages/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
-import 'package:luman/Pages/snakegame.dart';
+import 'package:luman/Individual/snakegame.dart';
 
 class Body extends StatelessWidget {
   //final username;
@@ -75,8 +76,16 @@ class Body extends StatelessWidget {
                       ),
                       SizedBox(width: size.width * 0.045),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return QuizPage(); // Change this
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/idea.png",
                           title: "Quizzes",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/quizentry.dart';
 import 'package:luman/constants.dart';
-import 'package:luman/Pages/snakegame.dart';
+import 'package:luman/Individual/snakegame.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
 class HelpSlider extends StatelessWidget {
@@ -46,7 +47,16 @@ class HelpSlider extends StatelessWidget {
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return QuizPage();
+                  },
+                ),
+              );
+            }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/idea.png",
               title: "Quizzes",
