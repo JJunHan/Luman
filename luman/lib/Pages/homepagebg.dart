@@ -23,7 +23,7 @@ class Background extends StatelessWidget {
             child: Image.asset(
               innerPage
                   ? "assets/images/innerbg.jpg"
-                  : "assets/images/innerbg.jpg", // Background image is here checking if lightmode is activated
+                  : "assets/images/resourcesbg.jpg", // Background image is here checking if lightmode is activated
               width: size.width,
               height: size.height,
               fit: BoxFit.fill,

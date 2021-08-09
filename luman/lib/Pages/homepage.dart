@@ -7,6 +7,7 @@ import 'package:luman/Pages/homepageheaders.dart';
 import 'package:luman/Pages/loginentry.dart';
 import 'package:luman/Pages/toolslider.dart';
 import 'package:luman/Pages/helpslider.dart';
+import 'package:luman/Pages/resourcepageentry.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -51,16 +52,14 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen(); // Change this
+                      return ResourcePage(); // Change this
                     },
                   ),
                 );
               },
             ),
 
-            ResourcesSlider(//to be replaced by individual customized sliders
-                //onChanged: "holder",
-                ),
+            ResourcesSlider(),
 
             homepageHeaders(
               text: "Tools to get you connected",
@@ -76,9 +75,7 @@ class Body extends StatelessWidget {
               },
             ),
 
-            ToolSlider(//to be replaced by individual customized sliders
-                //onChanged: "holder",
-                ),
+            ToolSlider(),
 
             homepageHeaders(
               text: "Need a distraction?",
