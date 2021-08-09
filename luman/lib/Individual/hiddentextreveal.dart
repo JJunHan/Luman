@@ -67,13 +67,14 @@ class HelpLineState extends State<HelpLine> {
                       visibility_firstbar ? null : _changed(true, "obs"),
                   child: Popup(
                     //image: "assets/images/helping-hand.png",
+                    maxwidth: "1",
                     title: "What is your work personality?",
                     subtext: "Find out which animal you are at work and",
                     subsubtext: "how you communicate in the workplace",
-                    boarder: dirtyBlue.withOpacity(0.6),
-                    fill: dirtyBlue.withOpacity(0.9),
+                    boarder: dirtyRed.withOpacity(0.6),
+                    fill: dirtyRed.withOpacity(0.6),
                     child: IconButton(
-                      color: Colors.black,
+                      color: Colors.white,
                       icon: Icon(
                         visibility_firstbar
                             ? Icons.cancel_outlined
@@ -95,12 +96,24 @@ class HelpLineState extends State<HelpLine> {
                         children: <Widget>[
                           SizedBox(height: size.height * 0.01),
                           Popup(
+                            maxwidth: "1.25",
                             //image: "assets/images/helping-hand.png",
                             title: "What is ?",
                             subtext: "Find out which ",
                             subsubtext: "how you ",
-                            boarder: dirtyBlue.withOpacity(0.6),
-                            fill: dirtyBlue.withOpacity(0.9),
+                            boarder: pastelPink.withOpacity(0.5),
+                            fill: pastelPink.withOpacity(0.6),
+                            child: Container(),
+                          ),
+                          SizedBox(height: size.height * 0.01),
+                          Popup(
+                            maxwidth: "1.25",
+                            //image: "assets/images/helping-hand.png",
+                            title: "What is ?",
+                            subtext: "Find out which ",
+                            subsubtext: "how you ",
+                            boarder: pastelPink.withOpacity(0.5),
+                            fill: pastelPink.withOpacity(0.6),
                             child: Container(),
                           ),
                         ],

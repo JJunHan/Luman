@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:luman/constants.dart';
 
@@ -9,6 +11,7 @@ class Popup extends StatelessWidget {
   final Color boarder;
   final Color fill;
   final String subsubtext;
+  final String maxwidth;
   const Popup({
     Key? key,
     //required this.onChanged,
@@ -18,6 +21,7 @@ class Popup extends StatelessWidget {
     required this.fill,
     required this.subsubtext,
     required this.child,
+    required this.maxwidth,
   }) : super(key: key);
 
   @override
@@ -25,7 +29,7 @@ class Popup extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width / 1,
+      width: size.width / double.parse(maxwidth),
       height: size.height / 7.2,
       //color: Colors.red[100],
       decoration: BoxDecoration(
