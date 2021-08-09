@@ -9,6 +9,7 @@ import 'package:luman/Pages/toolslider.dart';
 import 'package:luman/Pages/helpslider.dart';
 import 'package:luman/Pages/resourcepageentry.dart';
 import 'package:luman/Pages/toolspageentry.dart';
+import 'package:luman/Pages/helppageentry.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -85,7 +86,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen(); // Change this
+                      return HelpPage(); // Change this
                     },
                   ),
                 );

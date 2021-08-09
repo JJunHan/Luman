@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luman/Pages/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
+import 'package:luman/Pages/snakegame.dart';
 
 class Body extends StatelessWidget {
   //final username;
@@ -30,7 +31,7 @@ class Body extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Tools",
+                    "Need a distraction?",
                     style: TextStyle(
                       fontFamily: "open sans",
                       fontSize: size.width / 12,
@@ -40,7 +41,7 @@ class Body extends StatelessWidget {
                   ),
                   SizedBox(height: size.height * 0.02),
                   Text(
-                    "get connected now :)",
+                    "have some fun :)",
                     style: TextStyle(
                       fontFamily: "open sans",
                       fontSize: size.width / 22,
@@ -53,15 +54,23 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(width: size.width * 0.03),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return SnakeGame(); // Change this
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
-                          image: "assets/images/helping-hand.png",
-                          title: "Helplines",
-                          subtext: "Find the help",
-                          subsubtext: "you need!",
-                          boarder: dirtyBlue.withOpacity(0.6),
-                          fill: dirtyBlue.withOpacity(0.8),
+                          image: "assets/images/snake.png",
+                          title: "Games",
+                          subtext: "Have some",
+                          subsubtext: "fun!",
+                          boarder: dirtyBlueGrey.withOpacity(0.6),
+                          fill: dirtyBlueGrey.withOpacity(0.9),
                         ),
                       ),
                       SizedBox(width: size.width * 0.045),
@@ -69,43 +78,12 @@ class Body extends StatelessWidget {
                         onTap: () => print(
                             "Container pressed"), // handle your onTap here
                         child: TextImageFiller(
-                          image: "assets/images/question.png",
-                          title: "Forums",
-                          subtext: "Questions &",
-                          subsubtext: "answers!",
-                          boarder: dirtyIndigo.withOpacity(0.6),
-                          fill: dirtyIndigo.withOpacity(0.9),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: size.height * 0.05),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(width: size.width * 0.03),
-                      InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
-                        child: TextImageFiller(
-                          image: "assets/images/toilet-paper.png",
-                          title: "HelpBot",
-                          subtext: "Interact with",
-                          subsubtext: "Lawlo!",
-                          boarder: pastelGreen.withOpacity(0.7),
-                          fill: pastelGreen.withOpacity(0.6),
-                        ),
-                      ),
-                      SizedBox(width: size.width * 0.045),
-                      InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
-                        child: TextImageFiller(
-                          image: "assets/images/network.png",
-                          title: "ChatBot",
-                          subtext: "Connect with",
-                          subsubtext: "others!",
-                          boarder: dirtyOrange.withOpacity(0.7),
-                          fill: dirtyOrange.withOpacity(0.8),
+                          image: "assets/images/idea.png",
+                          title: "Quizzes",
+                          subtext: "Know yourself",
+                          subsubtext: "better!",
+                          boarder: dirtyDarkBrown.withOpacity(0.9),
+                          fill: dirtyDarkBrown.withOpacity(0.79),
                         ),
                       ),
                     ],

@@ -36,7 +36,10 @@
 
 ## Home Page
 
-![Sample](luman/assets/sample.png)
+![Demo Homepage](luman/assets/homepage.png)
+![Resources](luman/assets/resources.png)
+![Tools](luman/assets/tools.png)
+![Games](luman/assets/games.png)
 
 ## SETUP
 
