@@ -23,7 +23,7 @@ class _SnakeGameState extends State<SnakeGame> {
   var isPlaying = false;
 
   void startGame() {
-    const duration = Duration(milliseconds: 300);
+    const duration = Duration(milliseconds: 200);
 
     snake = [
       // Snake head
@@ -101,14 +101,14 @@ class _SnakeGameState extends State<SnakeGame> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Game Over'),
+            title: Text('Game Over !!'),
             content: Text(
-              'Score: ${snake.length - 2}',
+              'Your score is: ${snake.length - 2}',
               style: TextStyle(fontSize: 20),
             ),
             actions: <Widget>[
               FlatButton(
-                child: Text('Close'),
+                child: Text('Exit'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -119,9 +119,8 @@ class _SnakeGameState extends State<SnakeGame> {
   }
 
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.deepPurple.shade200,
       body: Column(
         children: <Widget>[
           Expanded(
@@ -162,13 +161,13 @@ class _SnakeGameState extends State<SnakeGame> {
                       }
 
                       if (snake.first[0] == x && snake.first[1] == y) {
-                        color = Colors.green;
+                        color = Colors.teal.shade600;
                       } else if (isSnakeBody) {
-                        color = Colors.green[200];
+                        color = Colors.teal;
                       } else if (food[0] == x && food[1] == y) {
-                        color = Colors.red;
+                        color = Colors.red.shade900;
                       } else {
-                        color = Colors.grey[800];
+                        color = Colors.blueGrey.shade200;
                       }
 
                       return Container(
@@ -183,29 +182,31 @@ class _SnakeGameState extends State<SnakeGame> {
             ),
           ),
           Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  FlatButton(
-                      color: isPlaying ? Colors.red : Colors.blue,
-                      child: Text(
-                        isPlaying ? 'End' : 'Start',
-                        style: fontStyle,
-                      ),
-                      onPressed: () {
-                        if (isPlaying) {
-                          isPlaying = false;
-                        } else {
-                          startGame();
-                        }
-                      }),
-                  Text(
-                    'Score: ${snake.length - 2}',
-                    style: fontStyle,
-                  ),
-                ],
-              )),
+            padding: EdgeInsets.only(bottom: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                FlatButton(
+                    color:
+                        isPlaying ? Colors.red.shade800 : Colors.blue.shade400,
+                    child: Text(
+                      isPlaying ? 'End Game' : 'Start Game',
+                      style: fontStyle,
+                    ),
+                    onPressed: () {
+                      if (isPlaying) {
+                        isPlaying = false;
+                      } else {
+                        startGame();
+                      }
+                    }),
+                Text(
+                  'Score: ${snake.length - 2}',
+                  style: fontStyle,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
