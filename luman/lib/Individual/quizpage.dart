@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Pages/homepagebg.dart';
-import 'package:luman/Pages/innerpagetextfiller.dart';
+import 'package:luman/Individual/innerpagetextfiller.dart';
 import 'package:luman/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -59,8 +59,8 @@ class Body extends StatelessWidget {
                       title: "What is your work personality?",
                       subtext: "Find out which animal you are at work and",
                       subsubtext: "how you communicate in the workplace",
-                      boarder: dirtyBlue.withOpacity(0.6),
-                      fill: dirtyBlue.withOpacity(0.9),
+                      boarder: darkblue1.withOpacity(0.6),
+                      fill: darkblue1.withOpacity(0.9),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
@@ -73,8 +73,8 @@ class Body extends StatelessWidget {
                       title: "What is your MBTI personality?",
                       subtext: "Get a better understanding",
                       subsubtext: "of your personality type",
-                      boarder: dirtyIndigo.withOpacity(0.6),
-                      fill: dirtyIndigo.withOpacity(0.9),
+                      boarder: darkblue2.withOpacity(0.6),
+                      fill: darkblue2.withOpacity(0.8),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
@@ -86,8 +86,8 @@ class Body extends StatelessWidget {
                       title: "How's your emotional well-being?",
                       subtext: "Find out how well you are coping, and access ",
                       subsubtext: "resources to keep you mentally strong",
-                      boarder: dirtyDarkBrown.withOpacity(0.7),
-                      fill: dirtyDarkBrown.withOpacity(0.7),
+                      boarder: darkblue3.withOpacity(0.7),
+                      fill: darkblue3.withOpacity(0.8),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
@@ -99,8 +99,8 @@ class Body extends StatelessWidget {
                       title: "What is your Chronotype?",
                       subtext: "Discover your chronotype and better understand",
                       subsubtext: "your biological programming",
-                      boarder: dirtyOrange.withOpacity(0.7),
-                      fill: dirtyOrange.withOpacity(0.8),
+                      boarder: darkblue4.withOpacity(0.7),
+                      fill: darkblue4.withOpacity(0.8),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
@@ -113,8 +113,8 @@ class Body extends StatelessWidget {
                       subtext: "Find out your unique stress type and get",
                       subsubtext:
                           "targeted solutions designed to help you relax",
-                      boarder: dirtyGrey.withOpacity(0.7),
-                      fill: dirtyGrey.withOpacity(0.8),
+                      boarder: darkblue5.withOpacity(0.7),
+                      fill: darkblue5.withOpacity(0.8),
                     ),
                   ),
                   SizedBox(height: size.height * 0.07),

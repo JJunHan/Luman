@@ -1,18 +1,20 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:luman/constants.dart';
 
-class Popup extends StatelessWidget {
+class SubTextFiller extends StatelessWidget {
   //final ValueChanged<String> onChanged;
-  final Widget child;
+
   final String title;
   final String subtext;
   final Color boarder;
   final Color fill;
   final String subsubtext;
+  final String subsubsubtext;
+  final String subsubsubsubtext;
   final String maxwidth;
-  const Popup({
+  final String maxheight;
+  final bool tags;
+  const SubTextFiller({
     Key? key,
     //required this.onChanged,
     required this.title,
@@ -20,8 +22,11 @@ class Popup extends StatelessWidget {
     required this.boarder,
     required this.fill,
     required this.subsubtext,
-    required this.child,
+    required this.subsubsubtext,
+    required this.subsubsubsubtext,
     required this.maxwidth,
+    required this.maxheight,
+    required this.tags,
   }) : super(key: key);
 
   @override
@@ -30,7 +35,7 @@ class Popup extends StatelessWidget {
 
     return Container(
       width: size.width / double.parse(maxwidth),
-      height: size.height / 7.2,
+      height: size.height / double.parse(maxheight),
       //color: Colors.red[100],
       decoration: BoxDecoration(
         border: Border.all(
@@ -55,7 +60,7 @@ class Popup extends StatelessWidget {
                 //mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: size.height * 0.025, //padding
+                    height: size.height * 0.020, //padding
                     //width: size.width * 0.05,
                   ),
                   Text(
@@ -63,7 +68,7 @@ class Popup extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: "open sans",
                       fontSize: size.width / 21,
-                      color: Colors.white,
+                      color: Colors.black87,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -93,11 +98,59 @@ class Popup extends StatelessWidget {
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Text(
+                    subsubsubtext,
+                    style: TextStyle(
+                      fontFamily: "open sans",
+                      fontSize: size.width / 28,
+                      color: Colors.white,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    subsubsubsubtext,
+                    style: TextStyle(
+                      fontFamily: "open sans",
+                      fontSize: size.width / 28,
+                      color: Colors.white,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.005),
+                  tags
+                      ? Row(
+                          children: <Widget>[
+                            Container(
+                              alignment: Alignment.center,
+                              width: 50,
+                              height: 20,
+                              //color: Colors.red[100],
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: boarder,
+                                ),
+                                color: fill,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Text(
+                                "hello",
+                                style: TextStyle(
+                                  fontFamily: "open sans",
+                                  fontSize: size.width / 25,
+                                  color: Colors.black,
+                                  //fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : SizedBox(),
                 ],
               ),
               //SizedBox(width: size.width * 0.06),
               // Gap between image and words
-              SizedBox(width: size.width * 0.05),
+              SizedBox(width: size.width * 0.01),
               /*
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
@@ -110,7 +163,6 @@ class Popup extends StatelessWidget {
                 ),
               ),
               */
-              child,
             ],
           ),
         ],

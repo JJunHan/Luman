@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Individual/helplinesentry.dart';
-import 'package:luman/Individual/hiddentextreveal.dart';
 import 'package:luman/Pages/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
@@ -17,7 +16,7 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Background(
-      innerPage: false,
+      innerPage: true,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

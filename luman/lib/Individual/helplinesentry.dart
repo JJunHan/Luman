@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Individual/hiddentextreveal.dart';
+import 'package:luman/Individual/helplines.dart';
 
 class HelpLinesPage extends StatelessWidget {
   //final username;
