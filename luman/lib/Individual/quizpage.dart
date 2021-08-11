@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/homepagebg.dart';
+import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/Individual/innerpagetextfiller.dart';
 import 'package:luman/constants.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/buttons.dart';
-import 'package:luman/Pages/mainloginbg.dart';
+import 'package:luman/Welcome/buttons.dart';
+import 'package:luman/Backgrounds/mainloginbg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:luman/constants.dart';
-import 'package:luman/Pages/input_field.dart';
-import 'package:luman/Pages/password_field.dart';
-import 'package:luman/Pages/accountchecker.dart';
-import 'package:luman/Pages/signupentry.dart';
+import 'package:luman/Welcome/input_field.dart';
+import 'package:luman/Welcome/password_field.dart';
+import 'package:luman/Welcome/accountchecker.dart';
+import 'package:luman/Welcome/signupentry.dart';
 import 'package:luman/Pages/homepageentry.dart';
 
 class Body extends StatelessWidget {

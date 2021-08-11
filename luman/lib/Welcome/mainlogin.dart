@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/mainloginbg.dart';
+import 'package:luman/Backgrounds/mainloginbg.dart';
 import 'package:flutter_svg/svg.dart'; //to use svg images
-import 'package:luman/Pages/buttons.dart';
-import 'package:luman/Pages/loginentry.dart';
+import 'package:luman/Welcome/buttons.dart';
+import 'package:luman/Welcome/loginentry.dart';
 import 'package:luman/constants.dart';
 import 'package:toggle_bar/toggle_bar.dart';
-import 'package:luman/Pages/signupentry.dart';
+import 'package:luman/Welcome/signupentry.dart';
 
 class Body extends StatelessWidget {
   @override

@@ -23,7 +23,7 @@ class Background extends StatelessWidget {
             child: Image.asset(
               innerPage
                   ? "assets/images/bg2.jpg"
-                  : "assets/images/bg.png", // Background image is here checking if lightmode is activated
+                  : "assets/images/bg.png", //lumen words are shifted up
               width: size.width,
               height: size.height,
               fit: BoxFit.fill,

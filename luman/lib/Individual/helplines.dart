@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:luman/Individual/helplinesbg.dart';
+import 'package:luman/Backgrounds/helplinesbg.dart';
 import 'package:luman/Individual/innerpagepopup.dart';
 import 'package:luman/Individual/innerpagesubtextfiller.dart';
 import 'package:luman/Individual/innerpagetextfiller.dart';

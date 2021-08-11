@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/text_field.dart';
+import 'package:luman/Welcome/text_field.dart';
 import 'package:luman/constants.dart';
 
-class RoundedInputField extends StatelessWidget {
+class RoundedemailField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
-  const RoundedInputField({
+  const RoundedemailField({
     Key? key,
     required this.hintText,
-    this.icon = Icons.person,
+    this.icon = Icons.mail,
     required this.onChanged,
   }) : super(key: key);
 
@@ -22,7 +22,7 @@ class RoundedInputField extends StatelessWidget {
         decoration: InputDecoration(
           icon: Icon(
             icon,
-            color: userIconColor,
+            color: emailIconColor,
           ),
           hintText: hintText,
           border: InputBorder.none,

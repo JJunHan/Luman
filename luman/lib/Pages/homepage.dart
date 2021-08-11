@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/homepagebg.dart';
+import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/resources_slider.dart';
 import 'package:luman/Pages/homepageheaders.dart';
-import 'package:luman/Pages/loginentry.dart';
 import 'package:luman/Pages/toolslider.dart';
 import 'package:luman/Pages/helpslider.dart';
 import 'package:luman/Pages/resourcepageentry.dart';

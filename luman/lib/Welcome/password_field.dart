@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luman/Pages/text_field.dart';
+import 'package:luman/Welcome/text_field.dart';
 import 'package:luman/constants.dart';
 
 class RoundedPasswordField extends StatelessWidget {

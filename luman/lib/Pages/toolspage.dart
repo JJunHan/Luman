@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Individual/helplinesentry.dart';
-import 'package:luman/Pages/homepagebg.dart';
+import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
