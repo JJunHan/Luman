@@ -4,10 +4,12 @@ import 'package:luman/constants.dart';
 class Background extends StatelessWidget {
   final Widget child;
   final bool innerPage;
+  final bool pinkbg;
   const Background({
     Key? key,
     required this.child,
     required this.innerPage,
+    required this.pinkbg,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,9 @@ class Background extends StatelessWidget {
             child: Image.asset(
               innerPage
                   ? "assets/images/innerbg.jpg"
-                  : "assets/images/pinkbg.jpg", // Background image is here checking if lightmode is activated
+                  : pinkbg
+                      ? "assets/images/pinkbg.jpg"
+                      : "assets/images/resourcesbg.jpg", // Background image is here checking if lightmode is activated
               width: size.width,
               height: size.height,
               fit: BoxFit.fill,

@@ -24,6 +24,7 @@ class Body extends StatelessWidget {
     return Background(
       //this is from homepagebg
       innerPage: true,
+      pinkbg: false,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

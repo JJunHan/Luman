@@ -16,7 +16,8 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Background(
-      innerPage: true,
+      innerPage: false,
+      pinkbg: false,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
