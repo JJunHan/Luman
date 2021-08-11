@@ -120,7 +120,12 @@ class EmailPasswordFormState extends State<EmailPasswordForm> {
     super.dispose();
   }
 
-  // Example code of how to sign in with email and password.
+  // SIGN OUT
+  Future<void> _signOut() async {
+    await _auth.signOut();
+  }
+
+  // Hw to sign in with email and password.
   Future<void> _signInWithEmailAndPassword() async {
     try {
       final User? user = (await _auth.signInWithEmailAndPassword(

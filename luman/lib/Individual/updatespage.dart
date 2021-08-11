@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Backgrounds/updatesbg.dart';
-import 'package:luman/Individual/innerpagetextfiller.dart';
+import 'package:luman/Individual/innerpagetextheader.dart';
 import 'package:luman/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -50,70 +50,50 @@ class Body extends StatelessWidget {
                   ),
                   SizedBox(height: size.height * 0.05),
                   InkWell(
-                    onTap: () => launch(
-                      'https://www.proprofs.com/quiz-school/story.php?title=mjawmdy0ng28v5',
-                    ), // forceWebView: true
-                    child: TextFiller(
+                    onTap: () => launch('https://www.gov.sg/features/covid-19',
+                        forceWebView: true), // forceWebView: true
+                    child: TextHeader(
                       //image: "assets/images/helping-hand.png",
-                      title: "What is your work personality?",
-                      subtext: "Find out which animal you are at work and",
-                      subsubtext: "how you communicate in the workplace",
-                      boarder: darkblue1.withOpacity(0.6),
-                      fill: darkblue1.withOpacity(0.9),
+                      title:
+                          "Overview of Singapore's \n\t\t\t COVID-19 Statistics",
+                      boarder: darkgreengrey1,
+                      fill: darkgreengrey1,
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.02),
+                  InkWell(
+                    onTap: () => launch("https://www.moh.gov.sg/covid-19",
+                        forceWebView: true), // handle your onTap here
+                    child: TextHeader(
+                      //image: "assets/images/network.png",
+                      title:
+                          "Updates on Singapore's \n\t\t\t COVID-19 Situation",
+                      boarder: darkgreengrey2,
+                      fill: darkgreengrey2,
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
                   InkWell(
                     onTap: () => launch(
-                      "https://www.16personalities.com/free-personality-test",
-                    ), // handle your onTap here
-                    child: TextFiller(
+                        "https://www.gov.sg/article/try-out-the-govsg-info-bot",
+                        forceWebView: true), // handle your onTap here
+                    child: TextHeader(
                       //image: "assets/images/question.png",
-                      title: "What is your MBTI personality?",
-                      subtext: "Get a better understanding",
-                      subsubtext: "of your personality type",
-                      boarder: darkblue2.withOpacity(0.6),
-                      fill: darkblue2.withOpacity(0.8),
+                      title: "COVID-19 Info Bot",
+                      boarder: darkgreengrey3,
+                      fill: darkgreengrey3,
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
                   InkWell(
                     onTap: () => launch(
-                        "https://www.mindline.sg/workspace/assessment"), // handle your onTap here
-                    child: TextFiller(
+                        "https://www.gov.sg/article/covid-19-resources",
+                        forceWebView: true), // handle your onTap here
+                    child: TextHeader(
                       //image: "assets/images/toilet-paper.png",
-                      title: "How's your emotional well-being?",
-                      subtext: "Find out how well you are coping, and access ",
-                      subsubtext: "resources to keep you mentally strong",
-                      boarder: darkblue3.withOpacity(0.7),
-                      fill: darkblue3.withOpacity(0.8),
-                    ),
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                  InkWell(
-                    onTap: () => launch(
-                        "https://www.doctoroz.com/quizzes/whats-your-chronotype/particle-1"), // handle your onTap here
-                    child: TextFiller(
-                      //image: "assets/images/network.png",
-                      title: "What is your Chronotype?",
-                      subtext: "Discover your chronotype and better understand",
-                      subsubtext: "your biological programming",
-                      boarder: darkblue4.withOpacity(0.7),
-                      fill: darkblue4.withOpacity(0.8),
-                    ),
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                  InkWell(
-                    onTap: () => launch(
-                        "https://www.doctoroz.com/quiz-whats-your-stress-type"), // handle your onTap here
-                    child: TextFiller(
-                      //image: "assets/images/network.png",
-                      title: "What is your stress type?",
-                      subtext: "Find out your unique stress type and get",
-                      subsubtext:
-                          "targeted solutions designed to help you relax",
-                      boarder: darkblue5.withOpacity(0.7),
-                      fill: darkblue5.withOpacity(0.8),
+                      title: "All Relevant Resources",
+                      boarder: darkgreengrey4,
+                      fill: darkgreengrey4,
                     ),
                   ),
                   SizedBox(height: size.height * 0.07),

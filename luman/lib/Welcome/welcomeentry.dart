@@ -12,7 +12,6 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
 */
-
     return Scaffold(
       body: Body(),
     );
