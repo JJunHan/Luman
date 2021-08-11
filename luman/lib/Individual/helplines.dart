@@ -326,6 +326,211 @@ class HelpLineState extends State<HelpLine> {
                         ),
                       ),
                     ),
+                    visibility_thirdbar
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () {},
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "National Care Helpline",
+                                  subtext: "A hotline set-up to offer support",
+                                  subsubtext:
+                                      "to those who need a listening ear",
+                                  subsubsubtext: "during the COVID-19 outbreak",
+                                  subsubsubsubtext:
+                                      "1800 202 6868 / daily, 8am-12am daily",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch("https://www.ec2.sg/",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Fei Yue’s Online Service",
+                                  subtext: "Provides support through a quick",
+                                  subsubtext: "chat service where individuals",
+                                  subsubsubtext:
+                                      "can chat with a counsellor instantly",
+                                  subsubsubsubtext:
+                                      "Mon-Fri, 10am-12pm/2pm-5pm",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://livesupport.imh.com.sg/CHAT/CuteSoft_Client/CuteChat/SupportClient.aspx?ID=imh",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "IMH Health Services",
+                                  subtext:
+                                      "Provides support via online chat and",
+                                  subsubtext:
+                                      "provides free health assessment to",
+                                  subsubsubtext:
+                                      "young adults aged 16 to 30 years old",
+                                  subsubsubsubtext: "Tue-Fri, 1pm-8pm",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.silverribbonsingapore.com/counselling.html",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Silver Ribbon Counselling",
+                                  subtext:
+                                      "Provides emotional support through their",
+                                  subsubtext:
+                                      "hotline and their basic complimentary",
+                                  subsubsubtext:
+                                      "in-person counselling service",
+                                  subsubsubsubtext:
+                                      "6386 1928 / Mon-Fri, 9am-5pm",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.care.sg/hear4u/",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Hear4U",
+                                  subtext:
+                                      "An online service by CARE Singapore",
+                                  subsubtext:
+                                      "for individuals to seek advice and",
+                                  subsubsubtext: "express their concerns",
+                                  subsubsubsubtext:
+                                      "6978 2728 / Mon-Fri, 10am-5pm",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.clarity-singapore.org/web1/index.php/contact-us",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Clarity Singapore Helpline",
+                                  subtext: "Provides emotional support for",
+                                  subsubtext: "individuals experiencing stress",
+                                  subsubsubtext:
+                                      "anxiety, anger and depression",
+                                  subsubsubsubtext:
+                                      "6757 7990 / hours vary daily",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.samhealth.org.sg/about-samh/contact-us/",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "SAMH Helpline and Counselling",
+                                  subtext:
+                                      "Provides a helpline for all mental health",
+                                  subsubtext:
+                                      "related help and in-person donation",
+                                  subsubsubtext: "based counselling sessions",
+                                  subsubsubsubtext: "Mon-Fri. 9am-6pm",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.ncss.gov.sg/our-initiatives/beyond-the-label/belle-beyond-the-label-helpbot",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "NCSS Belle the helpbot",
+                                  subtext: "Belle the helpbot is created for",
+                                  subsubtext:
+                                      "the public to find help and gain",
+                                  subsubsubtext: "easy access to relevant",
+                                  subsubsubsubtext: "services and resources",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://cpc.familylife.sg/?r_done=1",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Catholic Family Life Counselling",
+                                  subtext: "Provides pro-bono e-counselling",
+                                  subsubtext: "services via zoom to anyone",
+                                  subsubsubtext: "who requires support,",
+                                  subsubsubsubtext: "regardless of religion",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://wesleymc.org/care/counselling",
+                                    forceWebView: true),
+                                child: SubTextFiller(
+                                  tags: false,
+                                  maxheight: "5.0",
+                                  maxwidth: "1.4",
+                                  title: "Wesley Church Counselling",
+                                  subtext:
+                                      "Provides Christian-based counselling",
+                                  subsubtext: "service to individuals",
+                                  subsubsubtext:
+                                      " from any faith and walk of life",
+                                  subsubsubsubtext: "",
+                                  boarder: pastelPink.withOpacity(0.5),
+                                  fill: pastelPink.withOpacity(0.6),
+                                ),
+                              ),
+                            ],
+                          )
+                        : new Container(),
                     SizedBox(height: size.height * 0.02),
                     InkWell(
                       onTap: () => visibility_fourbar

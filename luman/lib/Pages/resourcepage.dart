@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
+import 'package:luman/Individual/storiesentry.dart';
+import 'package:luman/Individual/updatesentry.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
@@ -54,8 +56,16 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(width: size.width * 0.03),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return StoriesPage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/books.png",
                           title: "Stories",
@@ -85,8 +95,16 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(width: size.width * 0.03),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return UpdatesPage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/singapore.png",
                           title: "Updates",

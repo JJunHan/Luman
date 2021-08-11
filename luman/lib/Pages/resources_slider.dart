@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/storiesentry.dart';
+import 'package:luman/Individual/updatesentry.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
@@ -23,7 +25,16 @@ class ResourcesSlider extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return StoriesPage();
+                  },
+                ),
+              );
+            }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/books.png",
               title: "Stories",
@@ -73,7 +84,17 @@ class ResourcesSlider extends StatelessWidget {
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
+            //UpdatesPage
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return UpdatesPage();
+                  },
+                ),
+              );
+            }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/singapore.png",
               title: "Updates",
