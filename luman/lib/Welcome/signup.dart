@@ -23,16 +23,16 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: size.height * 0.25),
-            RoundedemailField(
-              hintText: "Email",
-              onChanged: (value) {
-                Email = value;
-              },
-            ),
             RoundedInputField(
               hintText: "Username",
               onChanged: (value) {
                 Username = value;
+              },
+            ),
+            RoundedemailField(
+              hintText: "Email",
+              onChanged: (value) {
+                Email = value;
               },
             ),
             RoundedPasswordField(
