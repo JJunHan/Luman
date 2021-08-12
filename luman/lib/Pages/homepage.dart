@@ -11,7 +11,7 @@ import 'package:luman/Pages/helpslider.dart';
 import 'package:luman/Pages/resourcepageentry.dart';
 import 'package:luman/Pages/toolspageentry.dart';
 import 'package:luman/Pages/helppageentry.dart';
-import 'package:luman/Welcome/authemailpw.dart';
+import 'package:luman/Welcome/login.dart';
 
 class Body extends StatelessWidget {
   final username;
@@ -66,7 +66,7 @@ class Body extends StatelessWidget {
                             Navigator.pop(context);
                             print("SignOut Done");
                             ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("SignOut Done")));
+                                SnackBar(content: Text("Sign Out Successful")));
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
