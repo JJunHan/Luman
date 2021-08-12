@@ -9,6 +9,8 @@ class TextFiller extends StatelessWidget {
   final Color boarder;
   final Color fill;
   final String subsubtext;
+  final String maxwidth;
+  final String maxheight;
   const TextFiller({
     Key? key,
     //required this.onChanged,
@@ -17,6 +19,8 @@ class TextFiller extends StatelessWidget {
     required this.boarder,
     required this.fill,
     required this.subsubtext,
+    this.maxheight = "7.2",
+    this.maxwidth = "1.25",
   }) : super(key: key);
 
   @override
@@ -24,8 +28,8 @@ class TextFiller extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width / 1.25,
-      height: size.height / 7.2,
+      width: size.width / double.parse(maxwidth),
+      height: size.height / double.parse(maxheight),
       //color: Colors.red[100],
       decoration: BoxDecoration(
         border: Border.all(

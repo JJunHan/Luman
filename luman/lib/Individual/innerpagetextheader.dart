@@ -7,12 +7,16 @@ class TextHeader extends StatelessWidget {
   final String title;
   final Color boarder;
   final Color fill;
+  final String maxwidth;
+  final String maxheight;
   const TextHeader({
     Key? key,
     //required this.onChanged,
     required this.title,
     required this.boarder,
     required this.fill,
+    this.maxheight = "8.3",
+    this.maxwidth = "1.25",
   }) : super(key: key);
 
   @override
@@ -20,8 +24,8 @@ class TextHeader extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width / 1.25,
-      height: size.height / 8.3,
+      width: size.width / double.parse(maxwidth),
+      height: size.height / double.parse(maxheight),
       //color: Colors.red[100],
       decoration: BoxDecoration(
         border: Border.all(

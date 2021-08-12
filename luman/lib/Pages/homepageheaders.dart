@@ -28,6 +28,7 @@ class homepageHeaders extends StatelessWidget {
           ),
           //padding: EdgeInsets.(10.0), //this is for internal padding
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
                 this.text,
@@ -38,19 +39,22 @@ class homepageHeaders extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(width: size.width * 0.2 - sizeofText),
+              //SizedBox(width: size.width * 0.2 - sizeofText),
               GestureDetector(
                 onTap: press,
                 child: Text(
-                  "See more",
+                  "See more\t\t\t\t\t\t\t\t\t",
+                  textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: "open sans",
                     fontSize: size.width / 26,
                     color: Colors.white,
+
                     //fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
+              //SizedBox(width: size.width * 0.02),
             ],
           ),
         ),

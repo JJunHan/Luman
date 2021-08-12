@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/chatbotentry.dart';
 import 'package:luman/Individual/helplinesentry.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/constants.dart';
@@ -107,8 +108,16 @@ class Body extends StatelessWidget {
                       ),
                       SizedBox(width: size.width * 0.045),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ChatbotPage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/network.png",
                           title: "ChatBot",
