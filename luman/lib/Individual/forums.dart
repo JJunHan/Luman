@@ -1,0 +1,343 @@
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:luman/constants.dart';
+
+class Forums extends StatefulWidget {
+  final String username;
+  const Forums(this.username);
+  @override
+  ForumsState createState() => ForumsState();
+}
+
+class ForumsState extends State<Forums> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  int _counter = 0;
+  late DatabaseReference _counterRef;
+  late DatabaseReference _messagesRef;
+  late DatabaseReference _posts;
+  late StreamSubscription<Event> _counterSubscription;
+  late StreamSubscription<Event> _messagesSubscription;
+  late StreamSubscription<Event> _postsSubscription;
+  bool _anchorToBottom = false;
+
+  String _kTestKey = 'Hello';
+  String _kTestValue = 'world!';
+  DatabaseError? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    // Demonstrates configuring the database directly
+    final FirebaseDatabase database = FirebaseDatabase(
+        databaseURL:
+            "https://flutter-86014-default-rtdb.asia-southeast1.firebasedatabase.app/");
+
+    _messagesRef = database.reference().child('messages');
+    _counterRef = database.reference().child('counter');
+    _posts = database.reference().child('Forum');
+
+    database.reference().child('counter').get().then((DataSnapshot? snapshot) {
+      print(
+          'Connected to directly configured database and read ${snapshot!.value}');
+    });
+
+    database.setPersistenceEnabled(true);
+    database.setPersistenceCacheSizeBytes(10000000);
+    _counterRef.keepSynced(true);
+    _counterSubscription = _counterRef.onValue.listen((Event event) {
+      setState(() {
+        _error = null;
+        _counter = event.snapshot.value ?? 0;
+      });
+    }, onError: (Object o) {
+      final DatabaseError error = o as DatabaseError;
+      setState(() {
+        _error = error;
+      });
+    });
+    _messagesSubscription =
+        //_messagesRef.limitToLast(10).onChildAdded.listen((Event event) {
+        _messagesRef.onChildAdded.listen((Event event) {
+      print('Child added: ${event.snapshot.value}');
+    }, onError: (Object o) {
+      final DatabaseError error = o as DatabaseError;
+      print('Error: ${error.code} ${error.message}');
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _messagesSubscription.cancel();
+    _counterSubscription.cancel();
+  }
+
+  Future<void> _increment() async {
+    await _counterRef.set(ServerValue.increment(1));
+
+    await _messagesRef
+        .push()
+        .set(<String, String>{_kTestKey: '$_kTestValue $_counter'});
+  }
+
+  Future<void> _decrement() async {
+    await _counterRef.set(ServerValue.increment(-1));
+  }
+
+  Future<void> _incrementAsTransaction() async {
+    // Increment counter in transaction.
+    final TransactionResult transactionResult =
+        await _counterRef.runTransaction((MutableData mutableData) async {
+      mutableData.value = (mutableData.value ?? 0) + 1;
+      return mutableData;
+    });
+
+    if (transactionResult.committed) {
+      await _messagesRef.push().set(<String, String>{
+        _kTestKey: '$_kTestValue ${transactionResult.dataSnapshot?.value}'
+      });
+    } else {
+      print('Transaction not committed.');
+      if (transactionResult.error != null) {
+        print(transactionResult.error!.message);
+      }
+    }
+  }
+
+  Future<void> _postResponse(TextEditingController postcontroller) async {
+    String _user = widget.username;
+    String _question = postcontroller.text;
+
+    await _counterRef.set(ServerValue.increment(1));
+
+    await _messagesRef.push()
+        //.set(<String, String>{_user: {'Post' : '$_question'}}); //$_counter
+        .set({
+      _user: {'Post': '$_question'}
+    }); //$_counter
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final postcontroller = TextEditingController();
+    String _user = widget.username;
+    String _question = postcontroller.text;
+    bool reply = false;
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: darkgreengrey4,
+        title: Text(
+          'Luman Forum',
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          SizedBox(height: size.height * 0.01),
+          _error == null
+              ? Text('Total of $_counter post${_counter == 1 ? '' : 's'}')
+              : Text(
+                  'Error retrieving button tap count:\n${_error!.message}',
+                ),
+          /*
+          ElevatedButton(
+              onPressed: () async {
+                await _incrementAsTransaction();
+              },
+              child: const Text('Increment as transaction')),
+              */
+
+          Flexible(
+            child: FirebaseAnimatedList(
+              shrinkWrap: false,
+              key: ValueKey<bool>(_anchorToBottom),
+              query: _messagesRef,
+              reverse: _anchorToBottom,
+              itemBuilder: (BuildContext context, DataSnapshot snapshot,
+                  Animation<double> animation, int index) {
+                return SizeTransition(
+                  sizeFactor: animation,
+                  child: ListTile(
+                    trailing: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        InkWell(
+                          splashColor: Colors.white,
+                          child: Icon(Icons.edit),
+                          onTap: () async {
+                            //_messagesRef.child(snapshot.key!).remove();
+                            //_decrement();
+                            if (snapshot.value[_user].toString() == "null") {
+                              postcontroller.text = "";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text('This is not your post!')));
+                            } else {
+                              postcontroller.text =
+                                  snapshot.value[_user].toString();
+                            }
+                          },
+                        ),
+                        InkWell(
+                          splashColor: Colors.white,
+                          child: Icon(Icons.reply),
+                          onTap: () async {
+                            //_messagesRef.child(snapshot.key!).remove();
+                            //_decrement();
+
+                            if (postcontroller.text == "") {
+                              return;
+                            } else {
+                              await _messagesRef
+                                  .child(snapshot.key!)
+                                  .child(_user)
+                                  .set({
+                                'Replies': {
+                                  'User': _user,
+                                  'Text': postcontroller.text
+                                }
+                              });
+                            }
+
+                            //postcontroller.text =
+                            //   snapshot.value[_user].toString();
+                          },
+                        ),
+                        InkWell(
+                          splashColor: Colors.white,
+                          child: Icon(Icons.delete),
+                          onTap: () async {
+                            if (snapshot.value[_user].toString() == "null") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text('This is not your post!')));
+                            } else {
+                              _messagesRef.child(snapshot.key!).remove();
+                              _decrement();
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    title: Container(
+                      //width: size.width / 1.2,
+                      //height: size.height / 8.5,
+                      //color: Colors.red[100],
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: pastelGreen,
+                        ),
+                        color: pastelGreen,
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(snapshot.value.toString()),
+                          Text(
+                            '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${snapshot.value.toString().split(":")[2]}',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          Text(
+            "Post a question here!",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: size.height * 0.01),
+          Form(
+            key: _formKey,
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isNotEmpty)
+                  return null;
+                else
+                  return 'Please add text';
+              },
+              controller: postcontroller,
+              cursorColor: Colors.black,
+              //textAlignVertical: TextAlignVertical.center,
+              textAlign: TextAlign.left,
+              decoration: InputDecoration(
+                //fillColor: Colors.black,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.blue,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: pastelGreen,
+                    width: 3.0,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                    width: 3.0,
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  color: userIconColor,
+                  icon: Icon(
+                    Icons.send,
+                    //size: 23.0,
+                  ),
+                  onPressed: () {
+                    if (!_formKey.currentState!.validate()) {
+                      return;
+                    } //check if form is empty or not
+                    _postResponse(postcontroller);
+                    postcontroller.clear(); //empty the box
+                  },
+                ),
+                hintText: "<click to add text>",
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Checkbox(
+              onChanged: (bool? value) {
+                if (value != null) {
+                  setState(() {
+                    _anchorToBottom = value;
+                  });
+                }
+              },
+              value: _anchorToBottom,
+            ),
+            title: const Text('Newest to Oldest'),
+          ),
+          //SizedBox(height: size.height * 0.01),
+        ],
+      ),
+      /*
+      floatingActionButton: FloatingActionButton(
+        onPressed: _increment,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+      */
+    );
+  }
+}

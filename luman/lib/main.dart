@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Luman',
       theme: ThemeData(
         primaryColor: Color(0xFFF1E6FF),
-        scaffoldBackgroundColor: Colors.pink[100],
+        scaffoldBackgroundColor: Colors.purple[100],
       ),
       home: WelcomeScreen(),
       /*

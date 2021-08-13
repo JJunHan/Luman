@@ -125,14 +125,14 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return ToolsPage(); // Change this
+                      return ToolsPage(username: username); // Change this
                     },
                   ),
                 );
               },
             ),
 
-            ToolSlider(),
+            ToolSlider(username: username),
 
             homepageHeaders(
               text: "Need a distraction?",

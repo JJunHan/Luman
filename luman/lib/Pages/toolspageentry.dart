@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:luman/Pages/toolspage.dart';
 
 class ToolsPage extends StatelessWidget {
-  //final username;
+  final username;
 
   const ToolsPage({
     Key? key,
-    //required this.username,
+    required this.username,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Body(
-          //username: username, //pass into the body
-          ),
+        username: username, //pass into the body
+      ),
     );
   }
 }

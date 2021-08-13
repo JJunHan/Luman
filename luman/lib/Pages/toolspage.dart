@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Individual/chatbotentry.dart';
+import 'package:luman/Individual/forums.dart';
 import 'package:luman/Individual/helplinesentry.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
 class Body extends StatelessWidget {
-  //final username;
+  final username;
   const Body({
     Key? key,
-    //required this.username,
+    required this.username,
   }) : super(key: key);
 
   @override
@@ -77,8 +78,16 @@ class Body extends StatelessWidget {
                       ),
                       SizedBox(width: size.width * 0.045),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Forums(username);
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/question.png",
                           title: "Forums",

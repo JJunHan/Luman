@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Individual/chatbotentry.dart';
+import 'package:luman/Individual/forums.dart';
 import 'package:luman/Individual/helplinesentry.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
 
 class ToolSlider extends StatelessWidget {
   //final ValueChanged<String> onChanged;
+  final username;
   const ToolSlider({
     Key? key,
+    required this.username,
     //required this.onChanged,
   }) : super(key: key);
 
@@ -46,7 +49,16 @@ class ToolSlider extends StatelessWidget {
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Forums(username);
+                  },
+                ),
+              );
+            }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/question.png",
               title: "Forums",
