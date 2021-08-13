@@ -1,7 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/quizentry.dart';
 import 'dart:async';
+import 'dart:convert';
+import 'package:luman/message_model.dart';
 
 import 'package:luman/constants.dart';
 
@@ -15,6 +18,7 @@ class Forums extends StatefulWidget {
 class ForumsState extends State<Forums> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   int _counter = 0;
+  String _valuetoprint = "";
   late DatabaseReference _counterRef;
   late DatabaseReference _messagesRef;
   late DatabaseReference _posts;
@@ -60,7 +64,20 @@ class ForumsState extends State<Forums> {
     });
     _messagesSubscription =
         //_messagesRef.limitToLast(10).onChildAdded.listen((Event event) {
-        _messagesRef.onChildAdded.listen((Event event) {
+        //_messagesRef.onChildAdded.listen((Event event) {
+        _messagesRef.onValue.listen((Event event) {
+      final data = new Map<String, dynamic>.from(event.snapshot.value);
+      final user_Model = UserModel.fromRTDB(data);
+      print(data);
+      //final desc = data[''];
+      //setState(() {
+      //_valuetoprint = user_Model.Post_details.Post_Content;
+      //print(_valuetoprint);
+      //final jsonResponse = json.decode(event.snapshot.value);
+      ///UserModel usermode = new UserModel.fromRTDB(jsonResponse);
+      //print(user_Model.Post_details.Post_Content);
+      //print('Child added: ${event.snapshot.value}');
+      //});
       print('Child added: ${event.snapshot.value}');
     }, onError: (Object o) {
       final DatabaseError error = o as DatabaseError;
@@ -113,11 +130,36 @@ class ForumsState extends State<Forums> {
 
     await _counterRef.set(ServerValue.increment(1));
 
-    await _messagesRef.push()
+    await _messagesRef //.push()
         //.set(<String, String>{_user: {'Post' : '$_question'}}); //$_counter
         .set({
-      _user: {'Post': '$_question'}
+      "Post": {"User": "$_user", "Content": "$_question"}
     }); //$_counter
+  }
+
+  Future<void> _getData(String user) async {
+    await _messagesRef.child(user).get().then((DataSnapshot? snapshot) {
+      //valuetoprint = snapshot!.value;
+      print(
+          'Connected to directly configured database and read ${snapshot!.value}');
+    });
+  }
+
+  String _getresponse(value, String user) {
+    //print(value.replaceAll("{", "").replaceAll("}", "").split(":"));
+    //List<String> a = value.split(" ");
+
+    final data = new Map<String, dynamic>.from(value);
+    //final desc = data[user] as String;
+
+    //var b = a.split(",");
+
+    //var ab = json.decode(a);
+    //var test = json.decode(a);
+    //print(value);
+    //print(data); // returns "one"
+
+    return "Test";
   }
 
   @override
@@ -153,7 +195,7 @@ class ForumsState extends State<Forums> {
 
           Flexible(
             child: FirebaseAnimatedList(
-              shrinkWrap: false,
+              //shrinkWrap: false,
               key: ValueKey<bool>(_anchorToBottom),
               query: _messagesRef,
               reverse: _anchorToBottom,
@@ -193,15 +235,16 @@ class ForumsState extends State<Forums> {
                             if (postcontroller.text == "") {
                               return;
                             } else {
-                              await _messagesRef
-                                  .child(snapshot.key!)
-                                  .child(_user)
-                                  .set({
-                                'Replies': {
+                              await _messagesRef //.child(snapshot.key!)
+
+                                  //.child('Post')
+                                  .update({
+                                'Reply': {
                                   'User': _user,
                                   'Text': postcontroller.text
                                 }
                               });
+                              postcontroller.text = "";
                             }
 
                             //postcontroller.text =
@@ -239,15 +282,18 @@ class ForumsState extends State<Forums> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Text(snapshot.value.toString()),
-                          Text(
-                            '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            '${snapshot.value.toString().split(":")[2]}',
-                          ),
+                          //Text(snapshot.value.toString()),
+                          //Text(
+                          //  '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
+                          //  style: TextStyle(
+                          //      fontSize: 15, fontWeight: FontWeight.bold),
+                          //),
+                          //Text(
+                          //   '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")}'),
+                          Text('${_getresponse(snapshot.value, _user)}'),
+                          //Text(
+                          // '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":").reversed.toString().replaceAll("(", "").split(',')[2]}',
+                          //),
                         ],
                       ),
                     ),
@@ -256,6 +302,7 @@ class ForumsState extends State<Forums> {
               },
             ),
           ),
+
           Text(
             "Post a question here!",
             textAlign: TextAlign.center,
