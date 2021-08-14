@@ -67,8 +67,11 @@ class ForumsState extends State<Forums> {
         //_messagesRef.onChildAdded.listen((Event event) {
         _messagesRef.onValue.listen((Event event) {
       final data = new Map<String, dynamic>.from(event.snapshot.value);
-      final user_Model = UserModel.fromRTDB(data);
-      print(data);
+      //print(data[_counter.toString()]);
+      //final user_Model = UserModel.fromRTDB(data[_counter.toString()]);
+      //print(data['Content']);
+      //print(user_Model.Post_details.Post_Content);
+      //print(user_Model.Post_details.Post_User);
       //final desc = data[''];
       //setState(() {
       //_valuetoprint = user_Model.Post_details.Post_Content;
@@ -132,8 +135,11 @@ class ForumsState extends State<Forums> {
 
     await _messagesRef //.push()
         //.set(<String, String>{_user: {'Post' : '$_question'}}); //$_counter
-        .set({
-      "Post": {"User": "$_user", "Content": "$_question"}
+        .update({
+      _counter.toString(): {
+        "Post": {"User": "$_user", "Content": "$_question"},
+        "Reply": {"User": "No one", "Text": ""}
+      }
     }); //$_counter
   }
 
@@ -149,9 +155,11 @@ class ForumsState extends State<Forums> {
     //print(value.replaceAll("{", "").replaceAll("}", "").split(":"));
     //List<String> a = value.split(" ");
 
-    final data = new Map<String, dynamic>.from(value);
+    final data = Map<String, dynamic>.from(value);
     //final desc = data[user] as String;
+    final user_Model = UserModel.fromRTDB(data);
 
+    print(user_Model.Post_details.Post_Content);
     //var b = a.split(",");
 
     //var ab = json.decode(a);
@@ -214,14 +222,15 @@ class ForumsState extends State<Forums> {
                           onTap: () async {
                             //_messagesRef.child(snapshot.key!).remove();
                             //_decrement();
-                            if (snapshot.value[_user].toString() == "null") {
+                            if (snapshot.value['Post']['User'] != _user) {
                               postcontroller.text = "";
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text('This is not your post!')));
+                                      content:
+                                          Text('You are unable to edit this')));
                             } else {
                               postcontroller.text =
-                                  snapshot.value[_user].toString();
+                                  snapshot.value['Post']['Content'].toString();
                             }
                           },
                         ),
@@ -233,11 +242,14 @@ class ForumsState extends State<Forums> {
                             //_decrement();
 
                             if (postcontroller.text == "") {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(
+                                      'Type your reply in the box and click the reply icon after')));
                               return;
                             } else {
                               await _messagesRef //.child(snapshot.key!)
 
-                                  //.child('Post')
+                                  .child(_counter.toString())
                                   .update({
                                 'Reply': {
                                   'User': _user,
@@ -255,10 +267,11 @@ class ForumsState extends State<Forums> {
                           splashColor: Colors.white,
                           child: Icon(Icons.delete),
                           onTap: () async {
-                            if (snapshot.value[_user].toString() == "null") {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text('This is not your post!')));
+                            //print(snapshot.key == _counter.toString());
+                            if (snapshot.value['Post']['User'] != _user) {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(
+                                      'You are unable to delete this post')));
                             } else {
                               _messagesRef.child(snapshot.key!).remove();
                               _decrement();
@@ -282,7 +295,44 @@ class ForumsState extends State<Forums> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          //Text(snapshot.value.toString()),
+                          Text(
+                            '${snapshot.value['Post']['User']} asks:',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '${snapshot.value['Post']['Content']}',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          snapshot.value['Reply']['User'] != ""
+                              ? Text(
+                                  '${snapshot.value['Reply']['User']} replied:',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              : Container(),
+                          Text(
+                            '${snapshot.value['Reply']['Text']}',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          /*
+                          snapshot.value['Reply']['User'] == 'null'
+                              ? ""
+                              : Text(
+                                  '${snapshot.value['Post']['Content']}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                */
                           //Text(
                           //  '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
                           //  style: TextStyle(
