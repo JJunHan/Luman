@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 
+import 'package:luman/constants.dart';
+
 class SnakeGame extends StatefulWidget {
   @override
   _SnakeGameState createState() => _SnakeGameState();
@@ -120,7 +122,7 @@ class _SnakeGameState extends State<SnakeGame> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade200,
+      backgroundColor: Colors.brown[400],
       body: Column(
         children: <Widget>[
           Expanded(
@@ -171,10 +173,10 @@ class _SnakeGameState extends State<SnakeGame> {
                       }
 
                       return Container(
-                        margin: EdgeInsets.all(1),
+                        margin: EdgeInsets.all(0),
                         decoration: BoxDecoration(
                           color: color,
-                          shape: BoxShape.circle,
+                          shape: BoxShape.rectangle,
                         ),
                       );
                     }),
