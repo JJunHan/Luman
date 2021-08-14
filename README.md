@@ -1,23 +1,24 @@
 # Luman
 
-**Lawyers are humans too** :(
+Lawyers are humans too :(
 
-## Members
+## What am i?
 
-- Jun Han
-- Boon Khang
-- Alvin
-- Jolene
-- Min Hui
+A Flutter App developed using Google cloud services such as Firebase Auth, Firebase Realtime Database and Dialogflow.
 
-## Functions (EDIT)
+## Description
 
-- Forums to post questions/connect
-- Chatbot to direct them to different tools within the app
-- Chatbot that is annoyomous (chatting with other users)
-- Resources ?
-- Stories of past lawyers (reduce stigma of lawyers with mental health)
-- About us page (like this this is about)
+Luman is a legal professionals-specific mental health app that is a a "one-stop shop" for legal professionals to assess COVID-19 information and mental health resources geared just for them, stay socially connected through various tools and be guided to the appropriate channels for help. Luman directs users to 100% free trusted resources and allows all users to remain anonymous (or not), empowering legal professionals to take care of their holistic well-being without having to feel embarrassed or ashamed that they are seeking help.
+
+Luman features 3 main areas to mitigate the psychological risk of COVID-19: resources, connectivity tools and stress relievers.
+
+## Features
+
+- Login/Logout Authentication and Sign up option
+- Real time forum that allows users to post/edit/delete questions and reply to threads
+- Chatbot(Lawlo) to interact with users
+- Provide ample resources on various topics
+- A Snake game for funz
 
 ## Topic of choice
 
