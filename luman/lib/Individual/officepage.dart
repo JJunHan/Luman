@@ -14,7 +14,7 @@ class Office extends StatefulWidget {
 class OfficeState extends State<Office> {
   bool visibility_firstbar = false;
   bool visibility_secondbar = false;
-
+  bool visibility_thirdbar = false;
   void _changed(bool visibility, String field) {
     setState(() {
       if (field == "firstbar") {
@@ -22,6 +22,9 @@ class OfficeState extends State<Office> {
       }
       if (field == "secondbar") {
         visibility_secondbar = visibility;
+      }
+      if (field == "thirdbar") {
+        visibility_thirdbar = visibility;
       }
     });
   }
@@ -47,7 +50,7 @@ class OfficeState extends State<Office> {
                 Column(
                   children: <Widget>[
                     Text(
-                      "For Employers",
+                      "Thrive at Work",
                       style: TextStyle(
                         fontFamily: "open sans",
                         fontSize: size.width / 12,
@@ -57,7 +60,7 @@ class OfficeState extends State<Office> {
                     ),
                     SizedBox(height: size.height * 0.02),
                     Text(
-                      "resources that employers might find useful :)",
+                      "work effectively during COVID-19!",
                       style: TextStyle(
                         fontFamily: "open sans",
                         fontSize: size.width / 24,
@@ -75,7 +78,7 @@ class OfficeState extends State<Office> {
                         topheaderfontsize: 19,
                         maxwidth: "1.13",
                         maxheight: "10",
-                        title: "Employers Guidelines",
+                        title: "Working From Home",
                         boarder: lightblue.withOpacity(0.6),
                         fill: lightblue.withOpacity(0.7),
                         child: IconButton(
@@ -103,25 +106,7 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/lawyer_well_being_report_final.pdf",
-                                    forceWebView: false),
-                                child: TextFiller(
-                                  //tags: false,
-                                  titleclor: Colors.black,
-                                  maxheight: "7.0",
-                                  maxwidth: "1.4",
-                                  title: "American Bar Association",
-                                  subtext: "Creating a Movement To Improve ",
-                                  subsubtext:
-                                      "Well-Being in the Legal Profession",
-                                  boarder: lightblue2.withOpacity(0.5),
-                                  fill: lightblue2,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () => launch(
-                                    "https://www.mom.gov.sg/-/media/mom/documents/covid-19/advisories/tripartite-advisory-on-mental-well-being-at-workplaces.pdf",
+                                    "https://www.mom.gov.sg/-/media/mom/documents/covid-19/posters/infographic-work-from-home-tips.pdf",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
@@ -129,75 +114,7 @@ class OfficeState extends State<Office> {
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
                                   title: "Ministry of Manpower",
-                                  subtext: "Tripartite advisory on mental",
-                                  subsubtext: "well-being at workplaces",
-                                  boarder: lightblue2.withOpacity(0.5),
-                                  fill: lightblue2,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () => launch(
-                                    "https://www.hpb.gov.sg/workplace/workplace-programmes/useful-information-for-organisations/essential-guide-to-workplace-health-promotion",
-                                    forceWebView: false),
-                                child: TextFiller(
-                                  //tags: false,
-                                  titleclor: Colors.black,
-                                  maxheight: "7.0",
-                                  maxwidth: "1.4",
-                                  title: "Health Promotion Board",
-                                  subtext: "Essential guide to workplace ",
-                                  subsubtext: "health promotion ",
-                                  boarder: lightblue2.withOpacity(0.5),
-                                  fill: lightblue2,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () => launch(
-                                    "https://www.tal.sg/tafep/getting-started/progressive/tripartite-standards",
-                                    forceWebView: false),
-                                child: TextFiller(
-                                  //tags: false,
-                                  titleclor: Colors.black,
-                                  maxheight: "7.0",
-                                  maxwidth: "1.4",
-                                  title: "TAFEP",
-                                  subtext: "Tripartite standards of good",
-                                  subsubtext: "employment practices",
-                                  boarder: lightblue2.withOpacity(0.5),
-                                  fill: lightblue2,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () => launch(
-                                    "https://www.bca.gov.sg/GreenMark/others/GM_HW_2018.pdf",
-                                    forceWebView: false),
-                                child: TextFiller(
-                                  //tags: false,
-                                  titleclor: Colors.black,
-                                  maxheight: "7.0",
-                                  maxwidth: "1.4",
-                                  title: "BCA-HPB",
-                                  subtext: "Green mark for",
-                                  subsubtext: "healthier workplaces",
-                                  boarder: lightblue2.withOpacity(0.5),
-                                  fill: lightblue2,
-                                ),
-                              ),
-                              SizedBox(height: size.height * 0.01),
-                              InkWell(
-                                onTap: () => launch(
-                                    "https://www.silverribbonsingapore.com/pdfs/publications/publication112012.pdf",
-                                    forceWebView: false),
-                                child: TextFiller(
-                                  //tags: false,
-                                  titleclor: Colors.black,
-                                  maxheight: "7.0",
-                                  maxwidth: "1.4",
-                                  title: "Silver Ribbon",
-                                  subtext: "Handbook for Employers",
+                                  subtext: "4 Quick Tips on Working from Home",
                                   subsubtext: "",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
@@ -206,21 +123,92 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "http://www.workwellleaders.org/wp-content/uploads/2020/05/workwellleaders_eguide.pdf",
+                                    "https://stayprepared.sg/mymentalhealth/articles/thriving-while-working-from-home/",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Workwell Leaders",
-                                  subtext: "Workplace Wellness: Managing and",
-                                  subsubtext:
-                                      "Thriving in the time of COVID-19",
+                                  title: "Temasek Foundation",
+                                  subtext:
+                                      "Stay Prepared: Thriving While Working",
+                                  subsubtext: "From Home",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
                               ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.psd.gov.sg/challenge/ideas/work-better/public-service-working-from-home-tips-communication",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "Public Service Division",
+                                  subtext: "WFH: Breaking The Barriers",
+                                  subsubtext: "To Communication",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.channelnewsasia.com/commentary/remote-working-corporate-culture-boss-employee-relationships-374561",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "Channel News Asia",
+                                  subtext:
+                                      "Commentary: Toxic Workplace Behaviours",
+                                  subsubtext: "Persist despite Remote Working",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://content.mycareersfuture.gov.sg/6-ways-survive-toxic-workplace/",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "MyCareersFuture",
+                                  subtext: "Stress At Work: 6 Tips For Dealing",
+                                  subsubtext: "With A Toxic Workplace",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.jcu.edu.sg/news/releases/how-to-protect-your-mental-health-when-working-from-home-amid-the-covid-19-pandemic",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "James Cook University",
+                                  subtext: "How to Protect your Mental Health",
+                                  subsubtext:
+                                      "when Working from Home during COVID-19",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
                             ],
                           )
                         : new Container(),
@@ -234,7 +222,7 @@ class OfficeState extends State<Office> {
                         topheaderfontsize: 19,
                         maxwidth: "1.13",
                         maxheight: "10",
-                        title: "Articles for Employers",
+                        title: "Managing Work Load",
                         boarder: lightblue.withOpacity(0.6),
                         fill: lightblue.withOpacity(0.7),
                         child: IconButton(
@@ -262,16 +250,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://lawgazette.com.sg/practice/practice-matters/diversity-and-inclusion/",
+                                    "https://hbr.org/2017/01/how-to-tell-your-boss-you-have-too-much-work",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Singapore Law Gazette",
-                                  subtext: "Diversity and Inclusion in the",
-                                  subsubtext: "Legal Profession",
+                                  title: "Harvard Business Review",
+                                  subtext: "How to Tell Your Boss ",
+                                  subsubtext: "You Have Too Much Work",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -279,17 +267,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://lawgazette.com.sg/practice/practice-support/the-next-normal-invest-in-people-engagement-to-energise-your-team/",
+                                    "https://www.lifehack.org/818783/heavy-workload",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Singapore Law Gazette",
-                                  subtext: "The Next Normal: Invest in People",
-                                  subsubtext:
-                                      "Engagement to Energise Your Team",
+                                  title: "Lifehack",
+                                  subtext: "How to Effectively Manage",
+                                  subsubtext: "a Heavy Workload at Work",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -297,16 +284,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.jobstreet.com.sg/en/cms/employer/5-workplace-wellness-trends-hr-need-look/",
+                                    "https://www.psychologytoday.com/sg/blog/in-practice/201802/6-strategies-when-you-feel-overwhelmed-work",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "JobStreet SG",
-                                  subtext: "The 5 Workplace Wellness Trends",
-                                  subsubtext: "HR Need to Look Out For",
+                                  title: "Psychology Today",
+                                  subtext: "6 Strategies for When You",
+                                  subsubtext: "Feel Overwhelmed at Work",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -314,16 +301,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.legal500.com/fivehundred-magazine/leadership/good-wellbeing-starts-with-good-leadership/",
+                                    "https://hbr.org/2018/08/5-things-to-do-when-you-feel-overwhelmed-by-your-workload",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Legal 500",
-                                  subtext: "Good Wellbeing Starts with",
-                                  subsubtext: "Good Leadership",
+                                  title: "Harvard Business Review",
+                                  subtext: "5 Things to Do When You Feel",
+                                  subsubtext: "Overwhelmed by Your Workload",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -331,15 +318,87 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.businesstimes.com.sg/life-culture/company-of-good/mental-health-matters-at-work",
+                                    "https://www.forbes.com/sites/jacquelynsmith/2013/07/10/10-tips-for-dealing-with-an-overly-demanding-boss/?sh=574fa96964bc",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "The Business Times",
-                                  subtext: "Mental Health Matters at Work",
+                                  title: "Forbes",
+                                  subtext: "10 Tips For Dealing With An",
+                                  subsubtext: "Overly Demanding Boss",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "http://hrnews.co.uk/5-secrets-to-handling-a-bosss-unrealistic-expectations/",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "HR News",
+                                  subtext: "5 Secrets to Handling a Boss’s",
+                                  subsubtext: "Unrealistic Expectations",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                            ],
+                          )
+                        : new Container(),
+                    SizedBox(height: size.height * 0.02),
+                    InkWell(
+                      onTap: () => visibility_thirdbar
+                          ? _changed(false, "thirdbar")
+                          : _changed(true, "thirdbar"),
+                      child: Popup(
+                        //image: "assets/images/helping-hand.png",
+                        topheaderfontsize: 19,
+                        maxwidth: "1.13",
+                        maxheight: "10",
+                        title: "Increase Work Effectiveness",
+                        boarder: lightblue.withOpacity(0.6),
+                        fill: lightblue.withOpacity(0.7),
+                        child: IconButton(
+                          color: Colors.white,
+                          icon: Icon(
+                            visibility_thirdbar
+                                ? Icons.cancel_outlined
+                                : Icons
+                                    .add, //if visible show the X else show a +
+                            size: 23.0,
+                          ),
+                          onPressed: () {
+                            visibility_thirdbar
+                                ? _changed(false, "thirdbar")
+                                : _changed(true, "thirdbar");
+                            //_changed(false, "obs");
+                          },
+                        ),
+                      ),
+                    ),
+                    visibility_thirdbar
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work?referrer=playlist-talks_for_when_you_feel_totall&language=en",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "TED Talk",
+                                  subtext: "The Happy Secret to Better Work",
                                   subsubtext: "",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
@@ -348,17 +407,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.forbes.com/sites/ashikahmed/2020/06/08/why-employee-wellbeing-must-be-at-the-forefront-of-returning-to-work/?sh=793ce181dd63",
+                                    "https://hbr.org/2019/12/10-quick-tips-for-avoiding-distractions-at-work",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Forbes",
-                                  subtext: "Why Employee Well-Being Must Be At",
-                                  subsubtext:
-                                      "The Forefront Of Returning To Work",
+                                  title: "Harvard Business Review",
+                                  subtext: "10 Quick Tips for Avoiding",
+                                  subsubtext: "Distractions at Work",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -366,16 +424,16 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://viewer.factiva.com/edition/index?an=STBT000020210216eh2h001ms&editionId=13221014&eid4=dli4bWDCZhBHp6lm_2B5ppUvgNaPg533Anpf1QBRwdZ9lc00UN8_2F_2FOT0WHK6uHzphKbT_2BJbqKUSYn3RamxNEmi11vA2osgJwbCK3ENs7z_2FWN_2BcLQe6_2BtsYV8iHgU7V1YCSTE9PYTvUKqfcsgWWVOTHPkL_2BPTEE8UCcMfX6MQQKAb_2Bu0OulOvOJNQ_3D_3D|2",
+                                    "https://www.ted.com/talks/katherine_hampsten_how_miscommunication_happens_and_how_to_avoid_it?language=en",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Factiva",
-                                  subtext: "Mental health Can be an",
-                                  subsubtext: "Organisation's Wealth",
+                                  title: "TED Talk",
+                                  subtext: "Avoiding Miscommunications ",
+                                  subsubtext: "",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),
@@ -383,16 +441,50 @@ class OfficeState extends State<Office> {
                               SizedBox(height: size.height * 0.01),
                               InkWell(
                                 onTap: () => launch(
-                                    "https://www.healthhub.sg/live-healthy/1368/boosting-workplace-health-and-productivity",
+                                    "https://www.psychologytoday.com/sg/blog/why-bad-looks-good/201808/here-is-the-time-day-when-you-are-most-productive",
                                     forceWebView: false),
                                 child: TextFiller(
                                   //tags: false,
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Healthhub",
-                                  subtext: "6 Ways to Promote A Healthy",
-                                  subsubtext: "Lifestyle at Work",
+                                  title: "Psychology Today",
+                                  subtext: "Here Is the Time of Day When",
+                                  subsubtext: "You Are Most Productive ",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://positivepsychology.com/what-is-resilience/",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "Positive Psychology",
+                                  subtext: "What is Resilience and Why it's",
+                                  subsubtext: "Important to Bounce Cack",
+                                  boarder: lightblue2.withOpacity(0.5),
+                                  fill: lightblue2,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              InkWell(
+                                onTap: () => launch(
+                                    "https://www.youtube.com/watch?v=vo_lZiytsMw",
+                                    forceWebView: false),
+                                child: TextFiller(
+                                  //tags: false,
+                                  titleclor: Colors.black,
+                                  maxheight: "7.0",
+                                  maxwidth: "1.4",
+                                  title: "TED Talk",
+                                  subtext: "Change Your Mindset and",
+                                  subsubtext: "Achieve Anything",
                                   boarder: lightblue2.withOpacity(0.5),
                                   fill: lightblue2,
                                 ),

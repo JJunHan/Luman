@@ -390,7 +390,7 @@ class EmployerState extends State<Employer> {
                                   titleclor: Colors.black,
                                   maxheight: "7.0",
                                   maxwidth: "1.4",
-                                  title: "Healthhub",
+                                  title: "Ministry of Healh - Healthhub",
                                   subtext: "6 Ways to Promote A Healthy",
                                   subsubtext: "Lifestyle at Work",
                                   boarder: lightblue2.withOpacity(0.5),
