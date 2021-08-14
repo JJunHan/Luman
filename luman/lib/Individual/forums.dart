@@ -1,7 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:luman/Backgrounds/forumsbg.dart';
 import 'package:luman/Individual/quizentry.dart';
+import 'package:luman/Welcome/text_field.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:luman/message_model.dart';
@@ -173,21 +175,42 @@ class ForumsState extends State<Forums> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
+      /*
       appBar: AppBar(
         backgroundColor: darkgreengrey4,
         title: Text(
           'Luman Forum',
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: size.height * 0.01),
-          _error == null
-              ? Text('Total of $_counter post${_counter == 1 ? '' : 's'}')
-              : Text(
-                  'Error retrieving button tap count:\n${_error!.message}',
-                ),
-          /*
+      */
+      body: Background(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: size.height * 0.05),
+            Text(
+              "Forums",
+              style: TextStyle(
+                fontFamily: "open sans",
+                fontSize: size.width / 13,
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            SizedBox(height: size.height * 0.01),
+            _error == null
+                ? Text(
+                    'Total of $_counter post${_counter == 1 ? '' : 's'}',
+                    style: TextStyle(
+                      fontFamily: "open sans",
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                : Text(
+                    'Error retrieving button tap count:\n${_error!.message}',
+                  ),
+            /*
           ElevatedButton(
               onPressed: () async {
                 await _incrementAsTransaction();
@@ -195,127 +218,137 @@ class ForumsState extends State<Forums> {
               child: const Text('Increment as transaction')),
               */
 
-          Flexible(
-            child: FirebaseAnimatedList(
-              //shrinkWrap: false,
-              key: ValueKey<bool>(_anchorToBottom),
-              query: _messagesRef,
-              reverse: _anchorToBottom,
-              itemBuilder: (BuildContext context, DataSnapshot snapshot,
-                  Animation<double> animation, int index) {
-                return SizeTransition(
-                  sizeFactor: animation,
-                  child: ListTile(
-                    trailing: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        InkWell(
-                          splashColor: Colors.white,
-                          child: Icon(Icons.edit),
-                          onTap: () async {
-                            //_messagesRef.child(snapshot.key!).remove();
-                            //_decrement();
-                            if (snapshot.value['Post']['User'] != _user) {
-                              postcontroller.text = "";
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content:
-                                          Text('You are unable to edit this')));
-                            } else {
-                              postcontroller.text =
-                                  snapshot.value['Post']['Content'].toString();
-                            }
-                          },
-                        ),
-                        InkWell(
-                          splashColor: Colors.white,
-                          child: Icon(Icons.reply),
-                          onTap: () async {
-                            //_messagesRef.child(snapshot.key!).remove();
-                            //_decrement();
-
-                            if (postcontroller.text == "") {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  content: Text(
-                                      'Type your reply in the box and click the reply icon after')));
-                              return;
-                            } else {
-                              var idtoreplace = snapshot.key;
-                              await _messagesRef
-                                  //.child(snapshot.key!)
-                                  .child(idtoreplace.toString())
-                                  .update({
-                                'Reply': {
-                                  'User': _user,
-                                  'Text': postcontroller.text
-                                }
-                              });
-                              postcontroller.text = "";
-                            }
-                          },
-                        ),
-                        InkWell(
-                          splashColor: Colors.white,
-                          child: Icon(Icons.delete),
-                          onTap: () async {
-                            //print(snapshot.key == _counter.toString());
-                            if (snapshot.value['Post']['User'] != _user) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  content: Text(
-                                      'You are unable to delete this post')));
-                            } else {
-                              _messagesRef.child(snapshot.key!).remove();
-                              _decrement();
-                            }
-                          },
-                        ),
-                      ],
-                    ),
-                    title: Container(
-                      //width: size.width / 1.2,
-                      //height: size.height / 8.5,
-                      //color: Colors.red[100],
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: pastelGreen,
-                        ),
-                        color: pastelGreen,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Column(
+            Flexible(
+              child: FirebaseAnimatedList(
+                //shrinkWrap: false,
+                key: ValueKey<bool>(_anchorToBottom),
+                query: _messagesRef,
+                reverse: _anchorToBottom,
+                itemBuilder: (BuildContext context, DataSnapshot snapshot,
+                    Animation<double> animation, int index) {
+                  return SizeTransition(
+                    sizeFactor: animation,
+                    child: ListTile(
+                      trailing: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(
-                            '${snapshot.value['Post']['User']} asks:',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          InkWell(
+                            splashColor: Colors.white,
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.white,
                             ),
+                            onTap: () async {
+                              //_messagesRef.child(snapshot.key!).remove();
+                              //_decrement();
+                              if (snapshot.value['Post']['User'] != _user) {
+                                postcontroller.text = "";
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            'You are unable to edit this')));
+                              } else {
+                                postcontroller.text = snapshot.value['Post']
+                                        ['Content']
+                                    .toString();
+                              }
+                            },
                           ),
-                          Text(
-                            '${snapshot.value['Post']['Content']}',
-                            style: TextStyle(
-                              fontSize: 16,
+                          InkWell(
+                            splashColor: Colors.white,
+                            child: Icon(
+                              Icons.reply,
+                              color: Colors.white,
                             ),
+                            onTap: () async {
+                              //_messagesRef.child(snapshot.key!).remove();
+                              //_decrement();
+
+                              if (postcontroller.text == "") {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        'Type your reply in the box and click the reply icon after')));
+                                return;
+                              } else {
+                                var idtoreplace = snapshot.key;
+                                await _messagesRef
+                                    //.child(snapshot.key!)
+                                    .child(idtoreplace.toString())
+                                    .update({
+                                  'Reply': {
+                                    'User': _user,
+                                    'Text': postcontroller.text
+                                  }
+                                });
+                                postcontroller.text = "";
+                              }
+                            },
                           ),
-                          snapshot.value['Reply']['User'] != ""
-                              ? Text(
-                                  '${snapshot.value['Reply']['User']} replied:',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              : Container(),
-                          Text(
-                            '${snapshot.value['Reply']['Text']}',
-                            style: TextStyle(
-                              fontSize: 16,
+                          InkWell(
+                            splashColor: Colors.white,
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
                             ),
+                            onTap: () async {
+                              //print(snapshot.key == _counter.toString());
+                              if (snapshot.value['Post']['User'] != _user) {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        'You are unable to delete this post')));
+                              } else {
+                                _messagesRef.child(snapshot.key!).remove();
+                                _decrement();
+                              }
+                            },
                           ),
-                          /*
+                        ],
+                      ),
+                      title: Container(
+                        //width: size.width / 1.2,
+                        //height: size.height / 8.5,
+                        //color: Colors.red[100],
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          //crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              '${snapshot.value['Post']['User']} asks:',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              '${snapshot.value['Post']['Content']}',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            snapshot.value['Reply']['User'] != ""
+                                ? Text(
+                                    '${snapshot.value['Reply']['User']} replied:',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                : Container(),
+                            Text(
+                              '${snapshot.value['Reply']['Text']}',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            /*
                           snapshot.value['Reply']['User'] == 'null'
                               ? ""
                               : Text(
@@ -325,100 +358,95 @@ class ForumsState extends State<Forums> {
                                   ),
                                 ),
                                 */
-                          //Text(
-                          //  '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
-                          //  style: TextStyle(
-                          //      fontSize: 15, fontWeight: FontWeight.bold),
-                          //),
-                          //Text(
-                          //   '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")}'),
-                          //Text('${_getresponse(snapshot.value, _user)}'),
-                          //Text(
-                          // '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":").reversed.toString().replaceAll("(", "").split(',')[2]}',
-                          //),
-                        ],
+                            //Text(
+                            //  '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")[0]} asks:',
+                            //  style: TextStyle(
+                            //      fontSize: 15, fontWeight: FontWeight.bold),
+                            //),
+                            //Text(
+                            //   '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")}'),
+                            //Text('${_getresponse(snapshot.value, _user)}'),
+                            //Text(
+                            // '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":").reversed.toString().replaceAll("(", "").split(',')[2]}',
+                            //),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ),
-
-          Text(
-            "Post a question here!",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: size.height * 0.01),
-          Form(
-            key: _formKey,
-            child: TextFormField(
-              validator: (value) {
-                if (value!.isNotEmpty)
-                  return null;
-                else
-                  return 'Please add text';
-              },
-              controller: postcontroller,
-              cursorColor: Colors.black,
-              //textAlignVertical: TextAlignVertical.center,
-              textAlign: TextAlign.left,
-              decoration: InputDecoration(
-                //fillColor: Colors.black,
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Colors.blue,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: pastelGreen,
-                    width: 3.0,
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 3.0,
-                  ),
-                ),
-                suffixIcon: IconButton(
-                  color: userIconColor,
-                  icon: Icon(
-                    Icons.send,
-                    //size: 23.0,
-                  ),
-                  onPressed: () {
-                    if (!_formKey.currentState!.validate()) {
-                      return;
-                    } //check if form is empty or not
-                    _postResponse(postcontroller);
-                    postcontroller.clear(); //empty the box
-                  },
-                ),
-                hintText: "<click to add text>",
+                  );
+                },
               ),
             ),
-          ),
-          ListTile(
-            leading: Checkbox(
-              onChanged: (bool? value) {
-                if (value != null) {
-                  setState(() {
-                    _anchorToBottom = value;
-                  });
-                }
-              },
-              value: _anchorToBottom,
+/*
+            Text(
+              "Post a question here!",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            title: const Text('Newest to Oldest'),
-          ),
-          //SizedBox(height: size.height * 0.01),
-        ],
+            */
+            SizedBox(height: size.height * 0.01),
+            Form(
+              key: _formKey,
+              child: TextFieldContainer(
+                child: TextFormField(
+                  validator: (value) {
+                    if (value!.isNotEmpty)
+                      return null;
+                    else
+                      return 'Please add text';
+                  },
+                  controller: postcontroller,
+                  cursorColor: Colors.black,
+                  //textAlignVertical: TextAlignVertical.center,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    suffixIcon: IconButton(
+                      color: userIconColor,
+                      icon: Icon(
+                        Icons.send,
+                        //size: 23.0,
+                      ),
+                      onPressed: () {
+                        if (!_formKey.currentState!.validate()) {
+                          return;
+                        } //check if form is empty or not
+                        _postResponse(postcontroller);
+                        postcontroller.clear(); //empty the box
+                      },
+                    ),
+                    hintText: "Post a question here!",
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Checkbox(
+                side: BorderSide(color: Colors.white),
+                //checkColor: Colors.yellowAccent, // color of tick Mark
+                //activeColor: Colors.grey,
+                onChanged: (bool? value) {
+                  if (value != null) {
+                    setState(() {
+                      _anchorToBottom = value;
+                    });
+                  }
+                },
+                value: _anchorToBottom,
+              ),
+              title: const Text(
+                '<- Newest to Oldest',
+                style: TextStyle(
+                  fontFamily: "open sans",
+                  fontSize: 16,
+                  color: Colors.white,
+                  //fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            //SizedBox(height: size.height * 0.01),
+          ],
+        ),
       ),
       /*
       floatingActionButton: FloatingActionButton(
