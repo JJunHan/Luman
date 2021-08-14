@@ -150,25 +150,19 @@ class ForumsState extends State<Forums> {
           'Connected to directly configured database and read ${snapshot!.value}');
     });
   }
-
-  String _getresponse(value, String user) {
+/*
+  UserModel _getresponse(value, String user) {
     //print(value.replaceAll("{", "").replaceAll("}", "").split(":"));
     //List<String> a = value.split(" ");
 
     final data = Map<String, dynamic>.from(value);
     //final desc = data[user] as String;
     final user_Model = UserModel.fromRTDB(data);
+    //print(user_Model.Post_details.Post_Content);
 
-    print(user_Model.Post_details.Post_Content);
-    //var b = a.split(",");
-
-    //var ab = json.decode(a);
-    //var test = json.decode(a);
-    //print(value);
-    //print(data); // returns "one"
-
-    return "Test";
+    return user_Model;
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -247,9 +241,10 @@ class ForumsState extends State<Forums> {
                                       'Type your reply in the box and click the reply icon after')));
                               return;
                             } else {
-                              await _messagesRef //.child(snapshot.key!)
-
-                                  .child(_counter.toString())
+                              var idtoreplace = snapshot.key;
+                              await _messagesRef
+                                  //.child(snapshot.key!)
+                                  .child(idtoreplace.toString())
                                   .update({
                                 'Reply': {
                                   'User': _user,
@@ -258,9 +253,6 @@ class ForumsState extends State<Forums> {
                               });
                               postcontroller.text = "";
                             }
-
-                            //postcontroller.text =
-                            //   snapshot.value[_user].toString();
                           },
                         ),
                         InkWell(
@@ -340,7 +332,7 @@ class ForumsState extends State<Forums> {
                           //),
                           //Text(
                           //   '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":")}'),
-                          Text('${_getresponse(snapshot.value, _user)}'),
+                          //Text('${_getresponse(snapshot.value, _user)}'),
                           //Text(
                           // '${snapshot.value.toString().replaceAll("{", "").replaceAll("}", "").split(":").reversed.toString().replaceAll("(", "").split(',')[2]}',
                           //),
