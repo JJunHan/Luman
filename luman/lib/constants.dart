@@ -46,8 +46,11 @@ const darkgreengrey2 = Color(0xFF00796B);
 const darkgreengrey3 = Color(0xFF009688);
 const darkgreengrey4 = Color(0xFF80CBC4);
 
+const lightblue = Color(0xFF1E88E5);
+const lightblue2 = Color(0xFF90CAF9);
+
 const darkGrey = Color(0xFF424242);
-//Color TEST = Colors.grey[900];
+//Color TEST = Colors.blue[600];
 Color kWhite = Color(0xFFF3E5F5).withOpacity(
     0.8); // this will change all opacity of the Login and signup buttons
 

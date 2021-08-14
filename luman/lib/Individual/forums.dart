@@ -389,6 +389,13 @@ class ForumsState extends State<Forums> {
               key: _formKey,
               child: TextFieldContainer(
                 child: TextFormField(
+                  onFieldSubmitted: (text) {
+                    if (!_formKey.currentState!.validate()) {
+                      return;
+                    } //check if form is empty or not
+                    _postResponse(postcontroller);
+                    postcontroller.clear(); //empty the box
+                  },
                   validator: (value) {
                     if (value!.isNotEmpty)
                       return null;

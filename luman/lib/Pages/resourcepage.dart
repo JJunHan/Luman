@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/Individual/employersentry.dart';
+import 'package:luman/Individual/officeentry.dart';
 import 'package:luman/Individual/storiesentry.dart';
 import 'package:luman/Individual/updatesentry.dart';
 import 'package:luman/constants.dart';
@@ -135,8 +136,17 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       SizedBox(width: size.width * 0.03),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        //OfficePage
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return OfficePage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/relax.png",
                           title: "Office",

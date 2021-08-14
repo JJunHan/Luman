@@ -1,17 +1,17 @@
 import "package:flutter/material.dart";
-import 'package:luman/Backgrounds/employerbg.dart';
+import 'package:luman/Backgrounds/officebg.dart';
 import 'package:luman/Individual/innerpagepopup.dart';
 import 'package:luman/Individual/innerpagesubtextfiller.dart';
 import 'package:luman/Individual/innerpagetextfiller.dart';
 import 'package:luman/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Employer extends StatefulWidget {
+class Office extends StatefulWidget {
   @override
-  EmployerState createState() => new EmployerState();
+  OfficeState createState() => new OfficeState();
 }
 
-class EmployerState extends State<Employer> {
+class OfficeState extends State<Office> {
   bool visibility_firstbar = false;
   bool visibility_secondbar = false;
 

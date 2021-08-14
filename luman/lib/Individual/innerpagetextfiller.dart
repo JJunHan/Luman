@@ -5,6 +5,7 @@ class TextFiller extends StatelessWidget {
   //final ValueChanged<String> onChanged;
 
   final String title;
+  final Color titleclor;
   final String subtext;
   final Color boarder;
   final Color fill;
@@ -21,6 +22,7 @@ class TextFiller extends StatelessWidget {
     required this.subsubtext,
     this.maxheight = "7.2",
     this.maxwidth = "1.25",
+    this.titleclor = Colors.white,
   }) : super(key: key);
 
   @override
@@ -62,7 +64,7 @@ class TextFiller extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: "open sans",
                       fontSize: size.width / 21,
-                      color: Colors.white,
+                      color: titleclor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

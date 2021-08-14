@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:luman/Individual/chat.dart';
 import 'package:luman/Individual/chatbotentry.dart';
 import 'package:luman/Individual/forums.dart';
+import 'package:luman/Individual/helpbotentry.dart';
 import 'package:luman/Individual/helplinesentry.dart';
 import 'package:luman/constants.dart';
 import 'package:luman/Pages/homepagetextimagefiller.dart';
@@ -70,7 +72,16 @@ class ToolSlider extends StatelessWidget {
           ),
           SizedBox(width: size.width * 0.045),
           InkWell(
-            onTap: () => print("Container pressed"), // handle your onTap here
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return HelptbotPage();
+                  },
+                ),
+              );
+            }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/toilet-paper.png",
               title: "HelpBot",

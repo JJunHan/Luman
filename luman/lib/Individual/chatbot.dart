@@ -52,14 +52,16 @@ class Body extends StatelessWidget {
                   SizedBox(height: size.height * 0.05),
                   InkWell(
                     onTap: () {
+                      /*
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return HelpLinesPage();
+                            return something();
                           },
                         ),
                       );
+                      */
                     }, // handle your onTap here
                     child: TextFiller(
                       maxheight: "6.25",
