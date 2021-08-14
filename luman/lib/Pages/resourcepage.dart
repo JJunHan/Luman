@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
 import 'package:luman/Individual/articlesentry.dart';
 import 'package:luman/Individual/employersentry.dart';
+import 'package:luman/Individual/healthpage.dart';
 import 'package:luman/Individual/officeentry.dart';
 import 'package:luman/Individual/storiesentry.dart';
 import 'package:luman/Individual/updatesentry.dart';
@@ -128,8 +129,17 @@ class Body extends StatelessWidget {
                       ),
                       SizedBox(width: size.width * 0.045),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        //Health
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Health();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/calm.png",
                           title: "Health",

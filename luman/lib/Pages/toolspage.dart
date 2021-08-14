@@ -138,7 +138,7 @@ class Body extends StatelessWidget {
                         }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/network.png",
-                          title: "ChatBot",
+                          title: "ChatRoom",
                           subtext: "Connect with",
                           subsubtext: "others!",
                           boarder: dirtyOrange.withOpacity(0.7),

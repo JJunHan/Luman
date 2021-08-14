@@ -105,7 +105,7 @@ class ToolSlider extends StatelessWidget {
             }, // handle your onTap here
             child: TextImageFiller(
               image: "assets/images/network.png",
-              title: "ChatBot",
+              title: "ChatRoom",
               subtext: "Connect with",
               subsubtext: "others!",
               boarder: dirtyGrey2.withOpacity(0.7),

@@ -33,6 +33,7 @@ const dirtyLime = Color(0xFFCDDC39);
 const dirtyBlue = Color(0xFF448AFF);
 const dirtyOrange = Color(0xFFFFB74D);
 const dirtyDarkBrown = Color(0xFF795548);
+const dirtyLightBrown = Color(0xFF8D6863);
 const dirtyDarkGreen = Color(0xFF795548);
 
 const darkblue1 = Color(0xFF0D47A1);
@@ -50,7 +51,9 @@ const lightblue = Color(0xFF1E88E5);
 const lightblue2 = Color(0xFF90CAF9);
 
 const darkGrey = Color(0xFF424242);
-//Color TEST = Colors.blue[600];
+
+const darkYellow = Color(0xFFFFF176);
+//Color TEST = Colors.brown[600];
 Color kWhite = Color(0xFFF3E5F5).withOpacity(
     0.8); // this will change all opacity of the Login and signup buttons
 
