@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luman/Backgrounds/homepagebg.dart';
+import 'package:luman/Individual/articlesentry.dart';
 import 'package:luman/Individual/employersentry.dart';
 import 'package:luman/Individual/officeentry.dart';
 import 'package:luman/Individual/storiesentry.dart';
@@ -79,8 +80,17 @@ class Body extends StatelessWidget {
                       ),
                       SizedBox(width: size.width * 0.045),
                       InkWell(
-                        onTap: () => print(
-                            "Container pressed"), // handle your onTap here
+                        //ArticlesPage
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ArticlesPage();
+                              },
+                            ),
+                          );
+                        }, // handle your onTap here
                         child: TextImageFiller(
                           image: "assets/images/gazette.png",
                           title: "Articles",
