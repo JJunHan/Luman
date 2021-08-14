@@ -4,6 +4,8 @@ import 'package:luman/Welcome/welcomeentry.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:async';
 
+import 'package:luman/constants.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Luman',
       theme: ThemeData(
         primaryColor: Color(0xFFF1E6FF),
-        scaffoldBackgroundColor: Colors.purple[100],
+        scaffoldBackgroundColor: dirtyGrey2,
       ),
       home: WelcomeScreen(),
       /*

@@ -96,7 +96,7 @@ class HealthState extends State<Health> {
                         topheaderfontsize: 19,
                         maxwidth: "1.13",
                         maxheight: "10",
-                        title: "Legal Support Schemes",
+                        title: "Law & Mental Health",
                         boarder: dirtyDarkBrown.withOpacity(0.6),
                         fill: dirtyDarkBrown.withOpacity(0.85),
                         child: IconButton(
@@ -131,7 +131,7 @@ class HealthState extends State<Health> {
                                   titleclor: Colors.black,
                                   maxheight: "7.3",
                                   maxwidth: "1.4",
-                                  title: "Law & Mental Health",
+                                  title: "Psychology Today",
                                   subtext: "The Depressed Lawyer ",
                                   subsubtext: "",
                                   boarder: dirtyLightBrown.withOpacity(0.7),
@@ -432,7 +432,7 @@ class HealthState extends State<Health> {
                         topheaderfontsize: 19,
                         maxwidth: "1.13",
                         maxheight: "10",
-                        title: "Self assessments",
+                        title: "Self-Assessments",
                         boarder: dirtyDarkBrown.withOpacity(0.6),
                         fill: dirtyDarkBrown.withOpacity(0.85),
                         child: IconButton(

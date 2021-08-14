@@ -5,6 +5,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
 import 'package:dialogflow_grpc/dialogflow_grpc.dart';
 import 'package:dialogflow_grpc/generated/google/cloud/dialogflow/v2beta1/session.pb.dart';
+import 'package:intl/intl.dart';
 
 // TODO import Dialogflow
 DialogflowGrpcV2Beta1? dialogflow;
@@ -87,7 +88,7 @@ class _ChatState extends State<Chat> {
     if (fulfillmentText.isNotEmpty) {
       ChatMessage botMessage = ChatMessage(
         text: fulfillmentText,
-        name: "LumanBot",
+        name: "Lawlo",
         type: false,
       );
 
@@ -146,7 +147,7 @@ class _ChatState extends State<Chat> {
 
           ChatMessage botMessage = new ChatMessage(
             text: fulfillmentText,
-            name: "Bot",
+            name: "ChatBot",
             type: false,
           );
 
@@ -184,6 +185,10 @@ class _ChatState extends State<Chat> {
           fontWeight: FontWeight.w800,
         ),
       ),
+      Text("Today, ${DateFormat("Hm").format(DateTime.now())}",
+          style: TextStyle(
+            fontSize: 20,
+          )),
       Flexible(
           child: ListView.builder(
         padding: EdgeInsets.all(8.0),
@@ -204,8 +209,8 @@ class _ChatState extends State<Chat> {
                     child: TextField(
                       controller: _textController,
                       onSubmitted: handleSubmitted,
-                      decoration:
-                          InputDecoration.collapsed(hintText: "Send a message"),
+                      decoration: InputDecoration.collapsed(
+                          hintText: "Start chatting..."),
                     ),
                   ),
                   Container(
@@ -243,7 +248,8 @@ class ChatMessage extends StatelessWidget {
     return <Widget>[
       new Container(
         margin: const EdgeInsets.only(right: 16.0),
-        child: CircleAvatar(child: new Text('B')),
+        child: CircleAvatar(
+            backgroundImage: AssetImage("assets/images/toilet-paper.png")),
       ),
       new Expanded(
         child: Column(
@@ -276,12 +282,9 @@ class ChatMessage extends StatelessWidget {
       ),
       Container(
         margin: const EdgeInsets.only(left: 16.0),
-        child: CircleAvatar(
-            child: Text(
-          this.name[0],
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )),
-      ),
+        child:
+            CircleAvatar(backgroundImage: AssetImage("assets/images/me.png")),
+      )
     ];
   }
 
