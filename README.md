@@ -14,11 +14,13 @@ Luman features 3 main areas to mitigate the psychological risk of COVID-19: reso
 
 ## Features
 
-- Login/Logout Authentication and Sign up option
+- Login/Logout Authentication 
+- Sign up function for new users
+- Customizable usernames to provide anonymity
 - Real time forum that allows users to post/edit/delete questions and reply to threads
-- Chatbot(Lawlo) to interact with users
+- Chatbot (Lawlo) to interact with users
 - Provide ample resources on various topics
-- A Snake game for funz
+- Includes a simple Snake game
 
 ## Topic of choice
 
